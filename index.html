@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My super page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-size: 16px;
+            padding: 24px;
+        }
+       .simple-button {
+           display: inline-block;
+           box-sizing: border-box;
+           background: #057fd1;
+           color: #ffffff;
+           border: #045c97 solid 2px;
+           border-radius: 4px;
+           border-top-left-radius: 24px;
+           border-left-color: #034979;
+           border-left-width: 6px;
+           border-top-width: 8px;
+           padding: 16px;
+           margin: 8px;
+           cursor: pointer;
+           box-shadow: 0px 2px 4px 2px rgb(0, 0, 0, 0.2);
+       }       
+       .simple-button:hover {
+           animation-duration: 1s;
+           animation-name: hover-effect;
+           animation-fill-mode: forwards;
+           animation-direction: normal;
+       }
+
+       @keyframes hover-effect {
+           to {
+               background-color: #ffffff;
+               border-color: #045c97;
+               color: #045c97;
+               box-shadow: 0px 0px 16px 8px rgb(0, 0, 0, 0.2);
+           }
+       }
+    </style>
+</head>
+<body>
+
+    <span class="simple-button">Press me</span>
+    <span class="simple-button">Press me</span>
+    <span class="simple-button">Press me</span>
+    <span class="simple-button">Press me</span>
+
+</body>
+</html>
+
