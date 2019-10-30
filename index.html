@@ -40,6 +40,42 @@
                box-shadow: 0px 0px 16px 8px rgb(0, 0, 0, 0.2);
            }
        }
+
+
+       .rainbow {
+            animation-duration: 5s;
+            animation-name: bg-rainbaw;
+            animation-fill-mode: forwards;
+            animation-direction: normal;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease;
+       }
+
+       @keyframes bg-rainbaw {
+           0% {
+            background-color: #ff0000;
+            color: #ffffff;
+            margin-top: 0px;
+           }
+           25% {
+            background-color: #d0ff00;
+            color: #0000ff;
+           }
+           50% {
+            background-color: #00ffc8;
+            color: #000000;
+            margin-top: 80px;
+           }
+           75% {
+            background-color: #1100ff;
+            color: #ffffff;
+           }
+           100% {
+            background-color: #ff0000;
+            color: #ffffff;
+            margin-top: 0px;
+           }
+       }
     </style>
 </head>
 <body>
@@ -48,6 +84,8 @@
     <span class="simple-button">Press me</span>
     <span class="simple-button">Press me</span>
     <span class="simple-button">Press me</span>
+    
+    <span class="simple-button rainbow">Press me</span>
 
 </body>
 </html>
