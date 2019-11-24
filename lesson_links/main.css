@@ -56,6 +56,7 @@ a.link-button {
     justify-content: center;
     align-items: center;
     color: #ffffff;
+    font-size: 2em;
 }
 
 .bg-rainbow-1 { background-color: #ff3131; }
@@ -65,3 +66,29 @@ a.link-button {
 .bg-rainbow-5 { background-color: #31f8ff; }
 .bg-rainbow-6 { background-color: #313fff; }
 .bg-rainbow-7 { background-color: #e731ff; }
+
+.link-images {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.link-images>a {
+    width: 50px;
+    height: 50px;
+    margin: 16px;
+    background-size: contain;
+}
+
+#button-vk {
+    background-image: url(https://cdn3.iconfinder.com/data/icons/social-network-icon/112/vk-512.png)
+}
+#button-facebook {
+    background-image: url(https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-512.png);
+}
+#button-instagram {
+    background-image: url(https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Instagram-512.png);
+}
+#button-github {
+    background-image: url(https://cdn1.iconfinder.com/data/icons/picons-social/57/github-256.png);
+}
