@@ -1,91 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My super page</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, height=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Schoole code ITI examples</title>
     <style>
         body {
             font-size: 16px;
-            padding: 24px;
+            padding: 20px;
         }
-       .simple-button {
-           display: inline-block;
-           box-sizing: border-box;
-           background: #057fd1;
-           color: #ffffff;
-           border: #045c97 solid 2px;
-           border-radius: 4px;
-           border-top-left-radius: 24px;
-           border-left-color: #034979;
-           border-left-width: 6px;
-           border-top-width: 8px;
-           padding: 16px;
-           margin: 8px;
-           cursor: pointer;
-           box-shadow: 0px 2px 4px 2px rgb(0, 0, 0, 0.2);
-       }       
-       .simple-button:hover {
-           animation-duration: 1s;
-           animation-name: hover-effect;
-           animation-fill-mode: forwards;
-           animation-direction: normal;
-       }
-
-       @keyframes hover-effect {
-           to {
-               background-color: #ffffff;
-               border-color: #045c97;
-               color: #045c97;
-               box-shadow: 0px 0px 16px 8px rgb(0, 0, 0, 0.2);
-           }
-       }
-
-       .rainbow {
-            animation-duration: 5s;
-            animation-name: bg-rainbaw;
-            animation-fill-mode: forwards;
-            animation-direction: normal;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease;
-       }
-
-       @keyframes bg-rainbaw {
-           0% {
-            background-color: #ff0000;
-            color: #ffffff;
-            transform: translate(0px);
-           }
-           25% {
-            background-color: #d0ff00;
-            color: #0000ff;
-           }
-           50% {
-            background-color: #00ffc8;
-            color: #000000;
-            transform: translate(80px);
-           }
-           75% {
-            background-color: #1100ff;
-            color: #ffffff;
-           }
-           100% {
-            background-color: #ff0000;
-            color: #ffffff;
-            transform: translate(0px);
-           }
-       }
+        a.lesson {
+            padding: 8px 16px;
+            margin: 4px 0px;
+            border-left: #505050 solid 4px;
+            color: #505050;
+            background: #50505015;
+        }
     </style>
 </head>
 <body>
-
-    <span class="simple-button">Press me</span>
-    <span class="simple-button">Press me</span>
-    <span class="simple-button">Press me</span>
-    <span class="simple-button">Press me</span>
-    
-    <span class="simple-button rainbow">Press me</span>
-
+    <h2>Lessons examples for Schoole-Code ITI</h2>
+    <a class="lesson" href="./lesson_links/index.html">Liks</a>
 </body>
 </html>
-
