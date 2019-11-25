@@ -4,23 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Schoole code ITI examples</title>
+    <title>code.school ITI examples</title>
     <style>
         body {
             font-size: 16px;
             padding: 20px;
         }
         a.lesson {
+            position: relative;
+            display: block;
             padding: 8px 16px;
             margin: 4px 0px;
             border-left: #505050 solid 4px;
             color: #505050;
             background: #50505015;
         }
+        a.lesson:hover {
+            background-color: #505050;
+            color: #ffffff;
+            border-left-color: #c0c0c0;
+            transition: 1s background-color, 1s color, 1s border-left-color;
+        }
     </style>
 </head>
 <body>
-    <h2>Lessons examples for Schoole-Code ITI</h2>
-    <a class="lesson" href="./lesson_links/index.html">Liks</a>
+    <h2>Lessons examples for code.school ITI</h2>
+    <a class="lesson" href="./lesson_tags/index.html" title=" ">Ознакомление с некоторыми основными тегами</a>
+    <a class="lesson" href="./lesson_links/index.html" title=" ">Ссылки</a>
 </body>
 </html>
