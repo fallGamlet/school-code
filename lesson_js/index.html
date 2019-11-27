@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript examples</title>
+    <style>
+        body {
+            padding: 20px;
+            font-size: 18px;
+        }
+        .container {
+            position: relative;
+            display: block;
+            width: 540px;
+            height: 20px;
+            margin: 20px;
+            overflow: hidden;
+        }
+        .container>span {
+            position: relative;
+            display: inline-block;
+            margin: 0px;
+            animation-name: move-to-left;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            width: 60px;
+        }
+        .container-vertical {
+            position: relative;
+            display: block;
+            margin: 20px;
+            overflow: hidden;
+            height: 180px;
+        }
+        .container-vertical>span {
+            position: relative;
+            display: block;
+            margin: 0px;
+            animation-name: move-to-up;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            width: 150px;
+            height: 20px;
+        }
+
+        .selected-item {
+            color: #d30000;
+            background: #00000020;
+        }
+
+        @keyframes move-to-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        @keyframes move-to-up {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span>Zero</span>
+        <span>One</span>
+        <span>Two</span>
+        <span>Three</span>
+        <span>Fore</span>
+        <span>Five</span>
+        <span>Six</span>
+        <span>Seven</span>
+        <span>Eight</span>
+        <span>Nine</span>
+    </div>
+
+    <div class="container-vertical">
+        <span>Zero</span>
+        <span>One</span>
+        <span>Two</span>
+        <span>Three</span>
+        <span>Fore</span>
+        <span>Five</span>
+        <span>Six</span>
+        <span>Seven</span>
+        <span>Eight</span>
+        <span>Nine</span>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>
