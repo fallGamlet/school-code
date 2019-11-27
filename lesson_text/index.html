@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lesson. Text styling</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+
+
     <style>
         body {
             font-size: 20px;
@@ -17,6 +21,19 @@
         .text-red {color: red; }
         .text-green {color: green; }
         .text-blue {color: blue; }
+
+        .greem-text {
+            font-size: 36px;
+            color: #aa2222;
+            text-shadow: 
+                    16px 14px 6px #0d2072,
+                    -8px 9px 3px #095328,
+                    -3px -14px 2px #665006;
+        }
+        .text-fonted {
+            /* font-family: 'Calistoga', cursive; */
+        }
+
     </style>
 </head>
 <body>
@@ -83,5 +100,20 @@
     <p style="line-height: 12px;">Значение "<b>line-height: 12px;</b>" станавливает абсолютную высоту строки в 12 пикселей. Так как значение величины шрифта установлено в 20 пикселей, то наблюдется наслоение строк текста друг на друга</p>
     Значение "<b>line-height: 0px;</b>" - текст превращается в сплошную мешанину
     <p style="line-height: 0px;">посмотрите как выглядит текст с установленными значением высоты строки в ноль, текст просто превратился в одну сплошную мешанину и совершенно невозможно его прочитать из-за подобного наложения. Добавим как еще побольше текста, чтобы даже на самыш широких экранах текст располагалс более чем на одной строке</p>
+    <br>
+    <hr>
+    <br>
+    <span>Тень под текстом <b>text-shadow</b></span>
+    <p>
+        <span class="greem-text">
+            Произвольный текст
+        </span>
+    </p>
+    <hr>
+    <br>
+    <span>Фрифт</span>
+    <p class="text-fonted" style="font-size: 30px;">
+        Тут у нас произвольный текст для проверки шрифта
+    </p>
 </body>
 </html>
