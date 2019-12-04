@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 16px;
+            padding: 24px;
+        }
+        .status-text {
+            background: #2d4f72;
+            color: #ffffff;
+            padding: 16px;
+            border-radius: 16px;
+            width: 300px;
+        }
+        .game-board {
+            display: grid;
+            width: 300px;
+            height: 300px;
+            margin: 16px;
+            background: gray;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+        }
+        .game-board>.cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: solid 1px #ffffff;
+            color: #ffffff;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="status-text">Status message text</div>
+    <div class="game-board">
+        <div class="cell">1</div>
+        <div class="cell">2</div>
+        <div class="cell">3</div>
+        <div class="cell">4</div>
+        <div class="cell">5</div>
+        <div class="cell">6</div>
+        <div class="cell">7</div>
+        <div class="cell">8</div>
+        <div class="cell">9</div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
