@@ -4,25 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Tic Tac Toe</title>
     <style>
         body {
             font-size: 16px;
+        }
+        .game-container {
+            position: relative;
+            display: flex;
+            box-sizing: border-box;
+            flex-direction: column;
+            align-items: center;
+            width: 400px;
+            left: 50%;
+            margin-left: -200px;
+            margin-top: 16px;
+            margin-bottom: 16px;
             padding: 24px;
+            background: #e8f6ff;
         }
         .status-text {
-            background: #2d4f72;
+            background: #3e6892;
             color: #ffffff;
             padding: 16px;
             border-radius: 16px;
             width: 300px;
+        }
+        .simple-wrapper {
+            display: block;
+            position: relative;
         }
         .game-board {
             display: grid;
             width: 300px;
             height: 300px;
             margin: 16px;
-            background: gray;
+            overflow: hidden;
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr 1fr;
         }
@@ -30,24 +47,76 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border: solid 1px #ffffff;
+            background: #274461;
+            border-radius: 16px;
+            margin: 2px;
             color: #ffffff;
             font-size: 32px;
+        }
+        .block-view {
+            position: absolute;
+            display: inline-block;
+            top: 0px; 
+            bottom: 0px; 
+            left: 0px;
+            right: 0px;
+            margin: 8px;
+            border-radius: 16px; 
+            z-index: 99;
+            background: #e8f6ffaa;
+            translate: z-index;
+        }
+        .restart-button {
+            display: inline-flex;
+            align-self: center;
+            justify-self: center;
+            padding: 8px 16px;
+            background: #274461;
+            color: #ffffff;
+            border-radius: 8px;
+        }
+        .restart-button:hover {
+            background: #8ec3f8;
+            color: #274461;
+        }
+
+        .animation-change-data {
+            animation-name: rotation-360;
+            animation-duration: 0.5s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-in-out;
+        }
+
+        @keyframes rotation-360 {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+            
         }
     </style>
 </head>
 <body>
-    <div class="status-text">Status message text</div>
-    <div class="game-board">
-        <div class="cell">1</div>
-        <div class="cell">2</div>
-        <div class="cell">3</div>
-        <div class="cell">4</div>
-        <div class="cell">5</div>
-        <div class="cell">6</div>
-        <div class="cell">7</div>
-        <div class="cell">8</div>
-        <div class="cell">9</div>
+    <div class="game-container">
+        <div class="status-text">Status message text</div>
+        <div class="simple-wrapper">
+            <div class="game-board">
+                <div class="cell">1</div>
+                <div class="cell">2</div>
+                <div class="cell">3</div>
+                <div class="cell">4</div>
+                <div class="cell">5</div>
+                <div class="cell">6</div>
+                <div class="cell">7</div>
+                <div class="cell">8</div>
+                <div class="cell">9</div>
+            </div>
+            <span class="block-view"></span>
+        </div>
+        <div class="restart-button">Restart</div>
     </div>
     <script src="./main.js"></script>
 </body>

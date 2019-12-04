@@ -3,30 +3,47 @@ const playerX = "x";
 const player0 = "0";
 
 let currentPlayer = playerX;
-let board = ["","","","","","","","",""];
+let board = [];
 let messageView = document.querySelector(".status-text"); 
-let boardView = document.querySelectorAll(".game-board>.cell");
-
-console.log(currentPlayer);
-console.log(board);
-console.log(boardView);
+let boardView = document.querySelector(".game-board");
+let boardViewItems = document.querySelectorAll(".game-board>.cell");
+let blockView = document.querySelector(".block-view");
+let restartButton = document.querySelector(".restart-button"); 
 
 initGameBoard();
 
+
 function initGameBoard() {
+    board = ["","","","","","","","",""];
+    currentPlayer = playerX;
+
     messageView.textContent = "Game started. First is Player X";
-    boardView.forEach(initItemView);
+    
+    blockView.style.display = 'none';
+
+    boardViewItems.forEach(initItemView);
+    
+    restartButton.onclick = initGameBoard;
+
+    updateViews();
 }
 
 function initItemView(view, index) {
     view.textContent = "";
     view.onclick = () => onCellPressed(view, index);
+
+    // make animation with random delay
+    setTimeout(() => {
+        animateDataChanging(view);    
+    }, 300*Math.random());
+    
 }
 
 function onCellPressed(view, index) {
     if (!checkStep(index)) return;
 
     board[index] = currentPlayer;
+    animateDataChanging(view);
     updateViews();
 
     if (checkWin()) {
@@ -48,7 +65,7 @@ function checkStep(index) {
 }
 
 function updateViews() {
-    boardView.forEach((view, index) => {
+    boardViewItems.forEach((view, index) => {
         view.textContent = board[index];
     });
 }
@@ -97,8 +114,22 @@ function changePalayer() {
 
 function onWin() {
     messageView.textContent = `Winner is ${currentPlayer.toUpperCase()}`;
+    blockView.style.display = 'block';
 }
 
 function onWithoutWinner() {
     messageView.textContent = "Without winner";
+    blockView.style.display = 'block';
+}
+
+/**
+ * Make animation
+ * @param {Element} view 
+ */
+function animateDataChanging(view) {
+    const viewClassName = view.className;
+    view.className = `${viewClassName} animation-change-data`;
+    setTimeout(() => {
+        view.className = viewClassName;
+    }, 500);
 }
