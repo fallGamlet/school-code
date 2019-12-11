@@ -18,8 +18,9 @@ function initGameBoard() {
     currentPlayer = playerX;
 
     messageView.textContent = "Game started. First is Player X";
-    
-    blockView.style.display = 'none';
+
+    blockView.textContent = "";
+    setBlockViewVisible(false);
 
     boardViewItems.forEach(initItemView);
     
@@ -113,13 +114,24 @@ function changePalayer() {
 }
 
 function onWin() {
-    messageView.textContent = `Winner is ${currentPlayer.toUpperCase()}`;
-    blockView.style.display = 'block';
+    blockView.textContent = `Winner is ${currentPlayer.toUpperCase()}`;
+    setBlockViewVisible(true);
 }
 
 function onWithoutWinner() {
-    messageView.textContent = "Without winner";
-    blockView.style.display = 'block';
+    blockView.textContent = "Without winner";
+    setBlockViewVisible(true);
+}
+
+function setBlockViewVisible(visible) {   
+    blockView.classList.remove('fade-close');
+    blockView.classList.remove('fade-full-open');
+
+    if (visible) {    
+        blockView.classList.add('fade-full-open');
+    } else {
+        blockView.classList.add('fade-close');
+    }
 }
 
 /**
