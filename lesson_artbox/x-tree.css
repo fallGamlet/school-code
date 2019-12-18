@@ -50,3 +50,34 @@
     bottom: -50px;
     z-index: -1;
 }
+
+.ball {
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    background-color: crimson;
+    background-color: #18d67d;
+    background-color: #eeff00;
+    background-color: #8c00e9;
+    background-color: #ba00e9;
+    background-color: #7fff2a;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+#ball1 {
+    top: 10%;
+}
+#ball2 {
+    top: 20%;
+}
+#ball3 {
+    top: 30%;
+}
+#ball4 {
+    top: 40%;
+}
+#ball5 {
+    top: 50%;
+}
