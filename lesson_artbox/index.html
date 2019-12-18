@@ -39,20 +39,25 @@
         let balls = document.querySelectorAll(".ball");
 
         let updateBallColors = function() {
-            console.log("test");
             for(let i=0; i < balls.length; i++) {
-                let ball = balls[i];
-                console.log("Ball");
-                console.log(ball);
-                let colorIndex = Math.floor(Math.random() * 1000) % colors.length;
-                console.log(`Color index: ${colorIndex}`);
+                let colorIndex = Math.floor((colors.length-1) * Math.random());
                 let color = colors[colorIndex];
-                console.log(`color: ${color}`);
-                ball.style.backgroundColor = color;
+
+                let x = 50;
+                let y = (0.1 + 0.8 * i / balls.length) * 100;
+                let size = 16 + Math.floor(24 * Math.random())
+
+                let ball = balls[i];
+                let style = ball.style
+                style.backgroundColor = color;
+                style.top = `${y}%`;
+                style.left = `${x}%`;
+                style.height = `${size}px`;
+                style.width = `${size}px`;
+                style.marginTop = `-${size/2}px`;
+                style.marginLeft = `-${size/2}px`;
             }
         };
-        console.log("Balls");
-        console.log(balls);
 
         let startBallPlay = function() {
             let timeout = 1000;

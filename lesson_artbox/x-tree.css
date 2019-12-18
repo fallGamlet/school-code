@@ -55,12 +55,9 @@
     border-radius: 50%;
     height: 24px;
     width: 24px;
+    margin-left: -12px;
+    margin-top: -12px;
     background-color: crimson;
-    background-color: #18d67d;
-    background-color: #eeff00;
-    background-color: #8c00e9;
-    background-color: #ba00e9;
-    background-color: #7fff2a;
     position: absolute;
     top: 50%;
     left: 50%;
