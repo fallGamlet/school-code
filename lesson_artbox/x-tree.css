@@ -1,3 +1,7 @@
+body {
+    background-color: #202020;
+}
+
 .xtree-container {
     position: absolute;
     box-sizing: border-box;
@@ -7,7 +11,6 @@
     left: -140px;
     margin-left: 50%;
     bottom: 0px;
-    background-color: #ffffff11;
 }
 .xtree-part {
     position: relative;
@@ -18,7 +21,7 @@
     border-radius: 50%;
     border: 90px solid transparent;
     border-top-width: 0px;
-    border-bottom-color: green;
+    border-bottom-color: #008000;
 }
 .part-top {
     border-width: 60px;
@@ -36,7 +39,7 @@
     margin-top: -70px;
 }
 .xtree-trunk {
-    background-color: brown;
+    background-color: #a52a2a;
     width: 20px;
     height: 40px;
     margin: -20px auto 20px;
@@ -57,26 +60,16 @@
     width: 24px;
     margin-left: -12px;
     margin-top: -12px;
-    background-color: crimson;
+    background-color: #dc143c;
     position: absolute;
     top: 50%;
     left: 50%;
-    transition: background-color, height, width, margin-left, margin-top, left, top;
-    transition-duration: 1s;
-}
-
-#ball1 {
-    top: 10%;
-}
-#ball2 {
-    top: 20%;
-}
-#ball3 {
-    top: 30%;
-}
-#ball4 {
-    top: 40%;
-}
-#ball5 {
-    top: 50%;
+    transition: background-color,  /* перечисляем свойства, которые будут изменяться с анимацией */
+                height, 
+                width, 
+                margin-left, 
+                margin-top, 
+                left, 
+                top;
+    transition-duration: 1s; /* задаем длительность анимации */
 }

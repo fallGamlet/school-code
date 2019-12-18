@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>X-tree</title>
-    <link rel="stylesheet" type="text/css" href="./x-tree.css">"
-    <style>
-        body {
-            background-color: black;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="./x-tree.css">
 </head>
 <body>
     <div class="xtree-container">
@@ -20,11 +15,12 @@
         <div class="xtree-part part-bottom"></div>
         <div class="xtree-trunk"></div>
         <div class="xtree-ground"></div>
-        <div id="ball1" class="ball"></div>
-        <div id="ball2" class="ball"></div>
-        <div id="ball3" class="ball"></div>
-        <div id="ball4" class="ball"></div>
-        <div id="ball5" class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
         <div class="ball"></div>
         <div class="ball"></div>
         <div class="ball"></div>
@@ -32,44 +28,53 @@
     <script>
         let colors = [
             "#3085f5", 
+            "#3085f5b0", 
             "#18d67d", 
+            "#18d67db0", 
+            "#27d4dad5", 
+            "#277bdad5", 
             "#eeff00", 
+            "#eeff00b0", 
             "#8c00e9", 
+            "#088a03d5", 
             "#e9ab00", 
             "#e95500", 
+            "#e95500b0", 
             "#7fff2a", 
             "#ba00e9"];
         let balls = document.querySelectorAll(".ball");
 
-        let updateBallColors = function() {
+        // Создаем функцию для изменения свойств шаров
+        let updateBalls = function() {
             for(let i=0; i < balls.length; i++) {
-                let colorIndex = Math.floor((colors.length-1) * Math.random());
-                let color = colors[colorIndex];
+                let colorIndex = Math.floor((colors.length-1) * Math.random()); // определяем индекс цвета
+                let color = colors[colorIndex]; // получаем значение цвета по индексу
 
-                let size = 10 + Math.floor(20 * Math.random())
-                let y = (0.1 + 0.8 * i / balls.length) * 100;
-                let dx = 0.7 * (Math.random() - 0.5) * y;
-                let x = 50 + dx;
+                let size = 10 + Math.floor(20 * Math.random())  // вычисляется размер шара
+                let y = (0.1 + 0.8 * i / balls.length) * 100;   // вычисляется отступ гара от верха
+                let dx = 0.7 * y * (Math.random() - 0.5);       // вычисляется смещение от центра по горизонтали
+                let x = 50 + dx; // назначается отступ от левого края в процентах
 
-                let ball = balls[i];
-                let style = ball.style
-                style.backgroundColor = color;
-                style.top = `${y}%`;
-                style.left = `${x}%`;
-                style.height = `${size}px`;
-                style.width = `${size}px`;
-                style.marginTop = `-${size/2}px`;
-                style.marginLeft = `-${size/2}px`;
+                let ball = balls[i]; // получаем ссылку на шар по индексу
+                let style = ball.style // получаем ссылку на стиль шара
+                style.backgroundColor = color; // задаем цвет шара
+                style.top = y +"%"; // задаем смещение свершу
+                style.left = x +"%"; // задаем смещение слева
+                style.height = size +"px"; // задаем высоту шара
+                style.width = size +"px"; // задаем ширину шара
+                style.marginTop = -0.5*size +"px"; // центрируем шар относительно себя по вертикал 
+                style.marginLeft = -0.5*size +"px"; // центрируем шар относительно себя по горизонтали
             }
         };
 
+        // Задаем функцию старта изменений
         let startBallPlay = function() {
-            let timeout = 1000;
-            updateBallColors();
-            setTimeout(startBallPlay, timeout);  
+            let timeout = 1000; // время задержки
+            updateBalls(); // вызывается метд изменения шаров
+            setTimeout(startBallPlay, timeout); // вызывается отложенное выполнение функции startBallPlay
         };
 
-        startBallPlay();
+        startBallPlay(); // запускаем анимации 
     </script>
 </body>
 </html>
