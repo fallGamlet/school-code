@@ -25,6 +25,9 @@
         <div id="ball3" class="ball"></div>
         <div id="ball4" class="ball"></div>
         <div id="ball5" class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
     </div>
     <script>
         let colors = [
@@ -43,9 +46,10 @@
                 let colorIndex = Math.floor((colors.length-1) * Math.random());
                 let color = colors[colorIndex];
 
-                let x = 50;
+                let size = 10 + Math.floor(20 * Math.random())
                 let y = (0.1 + 0.8 * i / balls.length) * 100;
-                let size = 16 + Math.floor(24 * Math.random())
+                let dx = 0.7 * (Math.random() - 0.5) * y;
+                let x = 50 + dx;
 
                 let ball = balls[i];
                 let style = ball.style
