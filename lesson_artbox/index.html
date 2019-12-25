@@ -39,8 +39,8 @@
             "#7fff2a", 
             "#ba00e9"];
         
-        let createBalls = function() {
-            let ballsCount = 30;
+        let createBalls = function(count) {
+            let ballsCount = count;
 
             // удаляются все имеющиеся шары
             let balls = document.querySelectorAll(".ball");
@@ -56,8 +56,8 @@
             return document.querySelectorAll(".ball");
         }
 
-        let balls = createBalls();
-        console.log(balls);
+        let balls = createBalls(30);
+
         // задаются размеры и полодение шаров
         let configureBalls = function() {
             for(let i=0; i < balls.length; i++) {
@@ -79,26 +79,24 @@
 
         configureBalls();
 
-        // Создаем функцию для изменения свойств цвета шаров
-        let updateBalls = function() {
-            for(let i=0; i < balls.length; i++) {
-                let colorIndex = Math.floor((colors.length-1) * Math.random()); // определяем индекс цвета
-                let color = colors[colorIndex]; // получаем значение цвета по индексу
-                let ball = balls[i]; // получаем ссылку на шар по индексу
-                let style = ball.style // получаем ссылку на стиль шара
-                style.backgroundColor = color; // задаем цвет шара
+        // Создаем функцию для изменения свойств цвета шара
+        let updateBall = function(ball) {
+            if (!ball) {
+                return;
             }
-        };
+
+            let colorIndex = Math.floor((colors.length-1) * Math.random()); // определяем индекс цвета
+            let color = colors[colorIndex]; // получаем значение цвета по индексу
+            let style = ball.style // получаем ссылку на стиль шара
+            style.backgroundColor = color; // задаем цвет шара
+        }
 
         // Задаем функцию старта изменений
-        let startBallPlay = function() {
-            let timeout = 1000; // время задержки
-            updateBalls(); // вызывается метд изменения шаров
-            setTimeout(startBallPlay, timeout); // вызывается отложенное выполнение функции startBallPlay
+        let startBallPlay = function(ball, timeout) {
+            // let timeout = 1000; // время задержки
+            updateBall(ball); // вызывается метд изменения шаров
+            setTimeout(startBallPlay, timeout, ball, timeout); // вызывается отложенное выполнение функции startBallPlay с параметрами
         };
-
-        startBallPlay(); // запускаем анимации 
-
 
         let xTreeBgColors = ["#008000", "#408000", , "#008030"];
         let xTreeColorIndex = 0;
@@ -114,13 +112,22 @@
         }
 
         let startXtreePlay = function() {
-            let timeout = 1000; // время задержки
+            let timeout = 1000; // время задержки в милисекундах
             changeXtreeColor(); // вызывается метд изменения шаров
             setTimeout(startXtreePlay, timeout);
         };
 
-        startXtreePlay();
+        let startAll = function() {
+            startXtreePlay();
+            // запускаем анимации шаров
+            balls.forEach(ball => {
+                // время задержки в милисекундах
+                let ballTimeout = 1000 * (1 + 4 * Math.random());
+                startBallPlay(ball, ballTimeout)
+            });
+        };
 
+        startAll();
     </script>
 </body>
 </html>
