@@ -22,6 +22,8 @@ body {
     border: 90px solid transparent;
     border-top-width: 0px;
     border-bottom-color: #008000;
+    transition: border-bottom-color;
+    transition-duration: 0.5s;
 }
 .part-top {
     border-width: 60px;
