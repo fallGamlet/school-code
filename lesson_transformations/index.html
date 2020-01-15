@@ -69,5 +69,15 @@
         <div></div>
         <div></div>
     </div>
+    <script>
+        const grounds = document.querySelectorAll(".ground>div");
+        const character = document.querySelector(".character");
+        
+        
+
+        function initGroundListner(grounds, handler) {
+            grounds.forEach(handler);
+        }
+    </script>
 </body>
 </html>
