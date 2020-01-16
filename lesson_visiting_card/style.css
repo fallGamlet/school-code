@@ -1,0 +1,85 @@
+body {
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+}
+.short-info {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
+    grid-template-areas: 
+        "photo name"
+        "photo about"
+        "links links";
+    overflow: hidden;
+    height: 100vh;
+    background: #000000;
+    margin: 0px;          
+}
+.photo-block {
+    display: flex;
+    grid-area: photo;
+    justify-content: flex-end;
+    padding: 16px;
+    align-items: center;
+    background: #174eb455;
+}
+.photo-image {
+    position: relative;
+    box-sizing: border-box;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #5b17b455;
+    background-image: url(https://avatars1.githubusercontent.com/u/7059877?s=460&v=4);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.name-block {
+    position: relative;
+    grid-area: name;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+    font-size: 250%;
+    background: #215bb355;
+    color: #ffffff;
+}
+.about-me-block {
+    position: relative;
+    grid-area: about;
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+    font-size: 120%;
+    background: #3664bb55;
+    color: #eeeeee;
+}
+.links-block {
+    display: flex;
+    justify-content: center;
+    grid-area: links;
+    padding: 16px;
+    background: #197ca355;
+}
+.anchor-link {
+    display: inline-block;
+    color: #ffffff;
+    background: #00000055;
+    padding: 8px 16px;
+    margin: 16px;
+}
+
+.long-info {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0px;
+    background: yellow;
+    color: #214594;
+}
