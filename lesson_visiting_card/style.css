@@ -6,16 +6,16 @@ body {
 .short-info {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.62fr;
     grid-template-rows: 1fr 1fr auto;
-    grid-template-areas: 
+    grid-template-areas:
         "photo name"
         "photo about"
         "links links";
     overflow: hidden;
     height: 100vh;
     background: #000000;
-    margin: 0px;          
+    margin: 0px;
 }
 .photo-block {
     display: flex;
