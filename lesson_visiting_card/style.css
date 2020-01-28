@@ -65,12 +65,24 @@ body {
     padding: 16px;
     background: #197ca355;
 }
-.anchor-link {
+.links-block>a {
     display: inline-block;
-    color: #ffffff;
-    background: #00000055;
-    padding: 8px 16px;
+    height: 64px;
+    width: 64px;
     margin: 16px;
+}
+.links-block>a.link-vk {
+    background: url(https://brand.vkforms.ru/static/media/logo_color_198.231228dd.svg) no-repeat 50% / contain;
+}
+.links-block>a.link-facebook {
+    background: url(https://en.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png) no-repeat 50% / contain;
+}
+.links-block>a.link-instagram {
+    background: url(https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=64) no-repeat 50% / contain;
+}
+.links-block>a.link-twitter {
+    background: url(https://cdn3.iconfinder.com/data/icons/capsocial-round/500/twitter-64.png) no-repeat 50% / contain;
+    color: #ffffff;
 }
 
 .long-info {
