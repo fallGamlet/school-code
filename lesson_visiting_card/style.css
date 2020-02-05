@@ -14,25 +14,22 @@ body {
         "links links";
     overflow: hidden;
     height: 100vh;
-    background: #000000;
+    background: #004f55;
+    color: #ffffff;
     margin: 0px;
 }
 .photo-block {
     display: flex;
     grid-area: photo;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
     padding: 16px;
-    background: #174eb455;
 }
 .photo-image {
-    position: relative;
-    box-sizing: border-box;
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background-color: #5b17b455;
-    background-image: url(https://avatars1.githubusercontent.com/u/7059877?s=460&v=4);
+    background-image: url(https://marwarakha.com/wordpress/wp-content/uploads/2010/07/05-Existing-Character.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -44,8 +41,6 @@ body {
     align-items: flex-end;
     padding: 16px;
     font-size: 250%;
-    background: #215bb355;
-    color: #ffffff;
 }
 .about-me-block {
     position: relative;
@@ -54,8 +49,9 @@ body {
     align-items: flex-start;
     padding: 16px;
     font-size: 120%;
-    background: #3664bb55;
     color: #eeeeee;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .links-block {
     display: flex;
@@ -63,7 +59,6 @@ body {
     justify-content: center;
     grid-area: links;
     padding: 16px;
-    background: #197ca355;
 }
 .links-block>a {
     display: inline-block;
@@ -82,7 +77,6 @@ body {
 }
 .links-block>a.link-twitter {
     background: url(https://cdn3.iconfinder.com/data/icons/capsocial-round/500/twitter-64.png) no-repeat 50% / contain;
-    color: #ffffff;
 }
 
 .long-info {
