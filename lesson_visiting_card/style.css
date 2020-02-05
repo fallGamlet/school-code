@@ -1,3 +1,17 @@
+/*
+Palette colors
+DarkBlue    #194977
+Blue        #2697d9
+LightBlue   #33c6f2
+DarkYellow  #ffe135
+LightYellow #fefd1b
+White       #ffffff
+DarkGreen   #109755
+LightGreen  #15ffaa
+*/
+:root {
+    --color-dblue: #194977;
+}
 body {
     font-size: 16px;
     padding: 0px;
@@ -14,7 +28,7 @@ body {
         "links links";
     overflow: hidden;
     height: 100vh;
-    background: #004f55;
+    background: #194977;
     color: #ffffff;
     margin: 0px;
 }
@@ -41,9 +55,9 @@ body {
     align-items: flex-end;
     justify-content: flex-start;
     padding: 16px;
-    font-size: 250%;
+    font-size: 300%;
     font-weight: normal;
-    color: #ffe600;
+    color: #ffe135;
 }
 .about-me-block {
     position: relative;
@@ -52,27 +66,30 @@ body {
     align-items: flex-start;
     padding: 16px;
     font-size: 120%;
-    color: #eeeeee;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.about-me-block>p {
+    max-width: 400px;
+    padding: 0px;
+    margin: 0px;
 }
 .links-block {
     grid-area: links;
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 16px;
-    background: #109755;
+    justify-content: center;
+    background: #fefd1b;
 }
 .links-block>a {
     display: inline-block;
     height: 64px;
     width: 64px;
     margin: 16px;
-    background: #ffe600;
+    background: #ffe135;
 }
-/*
+
 .links-block>a.link-vk {
     background: url(https://brand.vkforms.ru/static/media/logo_color_198.231228dd.svg) no-repeat 50% / contain;
 }
@@ -84,7 +101,7 @@ body {
 }
 .links-block>a.link-twitter {
     background: url(https://cdn3.iconfinder.com/data/icons/capsocial-round/500/twitter-64.png) no-repeat 50% / contain;
-} */
+}
 
 .long-info {
     display: flex;
