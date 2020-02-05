@@ -10,7 +10,11 @@ DarkGreen   #109755
 LightGreen  #15ffaa
 */
 :root {
-    --color-dblue: #194977;
+    --color-primary: #194977;
+    --color-secondary: #fefd1b;
+    --color-accent: #109755;
+    --color-text-dark: #333333;
+    --color-text-light: #ffffff;
 }
 body {
     font-size: 16px;
@@ -28,8 +32,8 @@ body {
         "links links";
     overflow: hidden;
     height: 100vh;
-    background: #194977;
-    color: #ffffff;
+    background: var(--color-primary);
+    color: var(--color-text-light);
     margin: 0px;
 }
 .photo-block {
@@ -57,7 +61,7 @@ body {
     padding: 16px;
     font-size: 300%;
     font-weight: normal;
-    color: #ffe135;
+    color: var(--color-secondary);
 }
 .about-me-block {
     position: relative;
@@ -80,14 +84,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background: #fefd1b;
+    background: var(--color-secondary);
 }
 .links-block>a {
     display: inline-block;
     height: 64px;
     width: 64px;
     margin: 16px;
-    background: #ffe135;
+    background: var(--color-secondary);
 }
 
 .links-block>a.link-vk {
@@ -111,8 +115,8 @@ body {
     overflow: hidden;
     height: 100vh;
     margin: 0px;
-    background: yellow;
-    color: #214594;
+    background: var(--color-accent);
+    color: var(--color-text-light);
 }
 
 
