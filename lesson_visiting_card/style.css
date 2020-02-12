@@ -93,8 +93,7 @@ body {
     width: 64px;
     margin: 16px;
     color: #194977;
-    background: #ffffff;
-    /* background: var(--color-secondary); */
+    background: var(--color-secondary);
 }
 
 .links-block>a.link-vk {
