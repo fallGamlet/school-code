@@ -37,8 +37,8 @@ body {
     margin: 0px;
 }
 .photo-block {
-    display: flex;
     grid-area: photo;
+    display: flex;
     align-items: center;
     justify-content: flex-end;
     padding: 16px;
@@ -54,13 +54,11 @@ body {
 }
 .name-block {
     grid-area: name;
-    position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
     padding: 16px;
     font-size: 300%;
-    font-weight: normal;
     color: var(--color-secondary);
 }
 .about-me-block {
@@ -68,6 +66,7 @@ body {
     grid-area: about;
     display: flex;
     align-items: flex-start;
+    justify-content: flex-start;
     padding: 16px;
     font-size: 120%;
     overflow: hidden;
@@ -80,31 +79,41 @@ body {
 }
 .links-block {
     grid-area: links;
-    position: relative;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     background: var(--color-secondary);
 }
 .links-block>a {
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     height: 64px;
     width: 64px;
     margin: 16px;
-    background: var(--color-secondary);
+    color: #194977;
+    background: #ffffff;
+    /* background: var(--color-secondary); */
 }
 
 .links-block>a.link-vk {
-    background: url(https://brand.vkforms.ru/static/media/logo_color_198.231228dd.svg) no-repeat 50% / contain;
+    background: 
+        url(https://brand.vkforms.ru/static/media/logo_color_198.231228dd.svg) 
+        no-repeat 50% / contain;
 }
 .links-block>a.link-facebook {
-    background: url(https://en.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png) no-repeat 50% / contain;
+    background: 
+        url(https://en.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png)
+        no-repeat 50% / contain;
 }
 .links-block>a.link-instagram {
-    background: url(https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=64) no-repeat 50% / contain;
+    background: url(https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=64) 
+    no-repeat 50% / contain;
 }
 .links-block>a.link-twitter {
-    background: url(https://cdn3.iconfinder.com/data/icons/capsocial-round/500/twitter-64.png) no-repeat 50% / contain;
+    background: url(https://cdn3.iconfinder.com/data/icons/capsocial-round/500/twitter-64.png) 
+    no-repeat 50% / contain;
 }
 
 .long-info {
