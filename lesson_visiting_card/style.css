@@ -92,9 +92,9 @@ body {
     width: 64px;
     margin: 16px;
     color: #194977;
-    background: var(--color-secondary);
+    background: var(--color-accent);
 }
-
+/*
 .links-block>a.link-vk {
     background: 
         url(https://brand.vkforms.ru/static/media/logo_color_198.231228dd.svg) 
@@ -112,7 +112,7 @@ body {
 .links-block>a.link-twitter {
     background: url(https://cdn3.iconfinder.com/data/icons/capsocial-round/500/twitter-64.png) 
     no-repeat 50% / contain;
-}
+}*/
 
 .long-info {
     display: flex;
@@ -134,10 +134,11 @@ body {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto;
         grid-template-areas:
-            "photo"
+            "photo "
             "name"
             "about"
             "links";
+        overflow: hidden;
         height: auto;
         min-height: 100vh;
         background: var(--color-primary);
@@ -147,40 +148,31 @@ body {
     .photo-block {
         grid-area: photo;
         display: flex;
-        align-items: center;
         justify-content: center;
-        padding: 16px;
     }
     .name-block {
         grid-area: name;
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;
         padding: 16px;
-        font-size: 250%;
+        font-size: 300%;
         color: var(--color-secondary);
     }
     .about-me-block {
         grid-area: about;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
-        min-width: 320px;
         padding: 16px;
         font-size: 120%;
+        overflow: hidden;
         text-overflow: ellipsis;
     }
     .about-me-block>p {
-        width: 100%;
+        max-width: 400px;
         padding: 0px;
         margin: 0px;
-    }
-    .links-block>a {
-        height: 48px;
-        width: 48px;
-        margin: 8px;
-        background: var(--color-secondary);
     }
 }
 
@@ -188,5 +180,15 @@ body {
     .about-me-block {
         justify-content: stretch;
         min-width: 0px;
+    }
+    .links-block>a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: 48px;
+        width: 48px;
+        margin: 8px;
+        color: #194977;
+        background: var(--color-accent);
     }
 }
