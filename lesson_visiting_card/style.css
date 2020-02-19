@@ -94,7 +94,7 @@ body {
     color: #194977;
     background: var(--color-accent);
 }
-/*
+
 .links-block>a.link-vk {
     background: 
         url(https://brand.vkforms.ru/static/media/logo_color_198.231228dd.svg) 
@@ -112,7 +112,7 @@ body {
 .links-block>a.link-twitter {
     background: url(https://cdn3.iconfinder.com/data/icons/capsocial-round/500/twitter-64.png) 
     no-repeat 50% / contain;
-}*/
+}
 
 .long-info {
     display: flex;
