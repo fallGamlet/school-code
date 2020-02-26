@@ -150,25 +150,11 @@ body {
 .link-next {
     display: inline-flex;
     position: relative;
-    width: 48px;
-    height: 48px;
-    background: var(--color-primary);
-    border: var(--color-text-light) solid 2px;
     align-self: center;
-    border-radius: 50%;
-}
-.link-next::after {
-    position: absolute;
-    content: "";
-    width: 0px;
-    height: 0px;
-    border: var(--color-text-light) solid 12px;
-    border-top-width: 20px;
-    border-bottom-width: 0px;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    left: 12px;
-    top: 18px;
+    background: #333333;
+    color: #ffffff;
+    padding: 8px 16px;
+    text-decoration: none;
 }
 
 
