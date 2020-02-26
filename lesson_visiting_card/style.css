@@ -10,16 +10,25 @@ DarkGreen   #109755
 LightGreen  #15ffaa
 */
 :root {
+    --color-bg: #464646;
     --color-primary: #194977;
     --color-secondary: #fefd1b;
     --color-accent: #109755;
     --color-text-dark: #333333;
     --color-text-light: #ffffff;
 }
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-size: 16px;
     padding: 0px;
     margin: 0px;
+    background: var(--color-bg);
+}
+.page-block {
+    height: auto;
+    min-height: 100vh;
 }
 .short-info {
     position: relative;
@@ -66,6 +75,7 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+    flex-direction: column;
     padding: 16px;
     font-size: 120%;
     overflow: hidden;
@@ -114,7 +124,10 @@ body {
     no-repeat 50% / contain;
 }
 
-.long-info {
+#page2, 
+#page3, 
+#page4
+{
     display: flex;
     position: relative;
     justify-content: center;
@@ -124,9 +137,46 @@ body {
     margin: 0px;
     background: var(--color-accent);
     color: var(--color-text-light);
+    font-size: 2rem;
+}
+#page3 {
+    background: var(--color-secondary);
+    color: var(--color-text-dark);
+}
+#page4 {
+    background: var(--color-primary);
+}
+
+.link-next {
+    display: inline-flex;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary);
+    border: var(--color-text-light) solid 2px;
+    align-self: center;
+    border-radius: 50%;
+}
+.link-next::after {
+    position: absolute;
+    content: "";
+    width: 0px;
+    height: 0px;
+    border: var(--color-text-light) solid 12px;
+    border-top-width: 20px;
+    border-bottom-width: 0px;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    left: 12px;
+    top: 18px;
 }
 
 
+@media screen and (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
 @media(max-width: 650px) {
     .short-info {
         position: relative;
