@@ -5,116 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="res/styles/main.css"> 
     <title>Code.School ITI</title>
-    <style>
-        body {
-            font-size: 16px;
-            padding: 0px;
-            margin: 0px;
-        }
-
-        .container-grid {
-            display: grid;
-            grid-template-columns: 2fr 3fr;
-            grid-template-rows: 1fr 1fr auto;
-            grid-template-areas:
-                "photo name"
-                "photo about"
-                "links links";
-            overflow: hidden;
-            height: auto;
-            min-height: 100vh;
-            background: #25508C;
-        }
-
-        .photo-block {
-            grid-area: photo;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 16px;
-        }
-
-        .my-photo {
-            background: url(https://sun9-38.userapi.com/c857016/v857016487/1da1/npX3TXcv_v4.jpg);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            border-radius: 50%;
-            border: 2px solid #FFFFFF55;
-            width: 200px;
-            height: 200px;
-        }
-
-        .name-block {
-            grid-area: name;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-start;
-            padding: 16px;
-            font-size: 250%;
-            color: #FFFFFF;
-        }
-
-        .about-block {
-            grid-area: about;
-            display: flex;
-            align-items: flex-start;
-            padding: 16px;
-            font-size: 120%;
-            color: #FFFFFF;
-        }
-
-        .links-block {
-            grid-area: links;
-            background: #D0D0FF;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .links-block>a {
-            display: inline-flex;
-            height: 64px;
-            width: 64px;
-            margin: 16px;
-            background: #25508C;
-            color: #FFFFFF;
-            border-radius: 50%;
-            text-decoration: none;
-            align-items: center;
-            justify-content: center;
-        }
-
-
-        .page-links {
-            padding: 24px;
-        }
-
-        a.lesson {
-            position: relative;
-            display: inline-block;
-            padding: 8px 16px;
-            margin: 4px 0px;
-            border-left: #505050 solid 4px;
-            color: #505050;
-            background: #50505015;
-        }
-
-        a.lesson:hover {
-            background-color: #505050;
-            color: #ffffff;
-            border-left-color: #c0c0c0;
-            text-decoration: none;
-            transition: 1s background-color,
-                1s color,
-                1s border-left-color;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container-grid">
+    <div id="page-start" class="page">
         <div class="photo-block">
             <div class="my-photo"></div>
         </div>
@@ -132,7 +28,13 @@
         </div>
     </div>
 
-    <div class="page-links">
+    <div id="page-gallery" class="page">
+        <div class="photo photo1"><div></div></div>
+        <div class="photo photo2"><div></div></div>
+        <div class="photo photo3"><div></div></div>
+    </div>
+
+    <div id="page-links" class="page">
         <h2>Lessons examples for code.school ITI</h2>
         <a class="lesson" href="./lesson_tags/index.html" title=" ">Ознакомление с некоторыми основными тегами</a>
         <br>

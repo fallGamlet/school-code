@@ -1,0 +1,27 @@
+#page-gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#page-gallery>.photo {
+    background-color: #ffffff;
+    border-radius: 1em;
+    padding: 0.2em;
+}
+#page-gallery>.photo>div {
+    width: 250px;
+    height: 250px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#page-gallery>.photo1>div {
+    background-image: url(./../img/photo1.jpg);
+}
+#page-gallery>.photo2>div {
+    background-image: url(./../img/photo2.jpg);
+}
+#page-gallery>.photo3>div {
+    background-image: url(./../img/photo3.jpg);
+}

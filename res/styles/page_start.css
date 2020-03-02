@@ -1,0 +1,67 @@
+#page-start {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 1fr 1fr auto;
+    grid-template-areas:
+        "photo name"
+        "photo about"
+        "links links";
+    overflow: hidden;
+    height: auto;
+    min-height: 100vh;
+    background: #25508C;
+}
+#page-start>.photo-block {
+    grid-area: photo;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 16px;
+}
+#page-start>.photo-block .my-photo {
+    background: url(https://sun9-38.userapi.com/c857016/v857016487/1da1/npX3TXcv_v4.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF55;
+    width: 200px;
+    height: 200px;
+}
+#page-start>.name-block {
+    grid-area: name;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 16px;
+    font-size: 250%;
+    color: #FFFFFF;
+}
+#page-start>.about-block {
+    grid-area: about;
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+    font-size: 120%;
+    color: #FFFFFF;
+}
+
+#page-start>.links-block {
+    grid-area: links;
+    background: #D0D0FF;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#page-start>.links-block>a {
+    display: inline-flex;
+    height: 64px;
+    width: 64px;
+    margin: 16px;
+    background: #25508C;
+    color: #FFFFFF;
+    border-radius: 50%;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+}

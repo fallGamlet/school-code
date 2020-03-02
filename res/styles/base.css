@@ -1,0 +1,12 @@
+body {
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.page {
+    min-height: 100vh;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+}

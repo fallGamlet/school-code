@@ -1,0 +1,22 @@
+#page-links {
+    padding: 24px;
+}
+#page-links a.lesson {
+    position: relative;
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 4px 0px;
+    border-left: #505050 solid 4px;
+    color: #505050;
+    background: #50505015;
+}
+#page-links a.lesson:hover {
+    background-color: #505050;
+    color: #ffffff;
+    border-left-color: #c0c0c0;
+    text-decoration: none;
+    transition: 
+        1s background-color,
+        1s color,
+        1s border-left-color;
+}
