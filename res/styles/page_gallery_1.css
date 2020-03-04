@@ -1,6 +1,6 @@
 #page-gallery-1 {
     position: relative;
-    background-color: #112e57;
+    background-color: #25508C;
     overflow: hidden;
 }
 #page-gallery-1>.grid {
@@ -13,7 +13,7 @@
 #page-gallery-1>.grid>.photo {
     width: 100%;
     height: 100%;
-    border: 2px solid #ffffff;
+    border: 2px solid #25508C;
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
@@ -53,5 +53,5 @@
     background-position: center;
     background-size: cover;
     border-radius: 50%;
-    border: 2px solid #ffffff;
+    border: 2px solid #25508C;
 }

@@ -46,22 +46,34 @@
     color: #FFFFFF;
 }
 
-#page-start>.links-block {
+
+#page-start .links-block {
     grid-area: links;
-    background: #D0D0FF;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: var(--color-secondary);
 }
-#page-start>.links-block>a {
+#page-start .links-block>a {
     display: inline-flex;
+    justify-content: center;
+    align-items: center;
     height: 64px;
     width: 64px;
     margin: 16px;
-    background: #25508C;
-    color: #FFFFFF;
-    border-radius: 50%;
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
+    color: #194977;
+    background: var(--color-accent);
+}
+#page-start .links-block>a.link-vk {
+    background: url(https://brand.vkforms.ru/static/media/logo_color_198.231228dd.svg) no-repeat 50% / contain;
+}
+#page-start .links-block>a.link-facebook {
+    background: url(https://en.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png) no-repeat 50% / contain;
+}
+#page-start .links-block>a.link-instagram {
+    background: url(https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=64) no-repeat 50% / contain;
+}
+#page-start .links-block>a.link-twitter {
+    background: url(https://cdn3.iconfinder.com/data/icons/capsocial-round/500/twitter-64.png) no-repeat 50% / contain;
 }

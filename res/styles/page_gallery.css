@@ -5,17 +5,75 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background: #000000;
+    padding: 3em 0px;
+    background: #25508C;
 }
 
-#page-gallery .photo {
+#page-gallery .card {
     background-color: #ffffff;
-    margin: 8px;
-    border-radius: 8px;
+    margin: 16px;
+    border-radius: 4px;
     padding: 8px;
+    box-shadow: 0px 2px 4px 2px #00000070;
 }
-#page-gallery .photo>div {
+#page-gallery .card .photo {
     width: 200px;
     height: 300px;
-    background: salmon;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#page-gallery .card::after {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: -20px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-image: url(./../img/pin_stick.png);
+    background-position: center;
+    background-size: contain;
+}
+
+#page-gallery .card:nth-child(3n+1)::after { left: 55%; }
+#page-gallery .card:nth-child(3n+1) { transform: rotateZ(-1deg); }
+#page-gallery .card:nth-child(3n+2)::after { left: 45%; }
+#page-gallery .card:nth-child(3n+2) { transform: rotateZ(1deg); }
+#page-gallery .card:nth-child(3n+3)::after { left: 40%;}
+#page-gallery .card:nth-child(3n+3) { transform: rotateZ(2deg); }
+
+#page-gallery .card:nth-child(1) .photo {
+    background-image: url(./../img/photo1.jpg);
+}
+#page-gallery .card:nth-child(2) .photo {
+    background-image: url(./../img/photo2.jpg);
+}
+#page-gallery .card:nth-child(3) .photo {
+    background-image: url(./../img/photo3.jpg);
+}
+#page-gallery .card:nth-child(4) .photo {
+    background-image: url(./../img/photo1.jpg);
+    background-position: left;
+}
+#page-gallery .card:nth-child(5) .photo {
+    background-image: url(./../img/photo2.jpg);
+    background-position: left;
+}
+#page-gallery .card:nth-child(6) .photo {
+    background-image: url(./../img/photo3.jpg);
+    background-position: left;
+}
+#page-gallery .card:nth-child(7) .photo {
+    background-image: url(./../img/photo1.jpg);
+    background-position: right;
+}
+#page-gallery .card:nth-child(8) .photo {
+    background-image: url(./../img/photo2.jpg);
+    background-position: right;
+}
+#page-gallery .card:nth-child(9) .photo {
+    background-image: url(./../img/photo3.jpg);
+    background-position: right;
 }
