@@ -1,57 +1,21 @@
 #page-gallery {
     position: relative;
-    background-color: #112e57;
-    overflow: hidden;
-}
-#page-gallery>.grid {
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-}
-#page-gallery>.grid>.photo {
-    width: 100%;
-    height: 100%;
-    border: 2px solid #ffffff;
-    overflow: hidden;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    /* transform: skewX(15deg); */
-}
-#page-gallery>.grid>.photo:nth-child(1) {
-    background-image: url(./../img/photo2.jpg);
-    background-position: left;
-}
-#page-gallery>.grid>.photo:nth-child(2) {
-    background-image: url(./../img/photo3.jpg);
-    background-position: right;
-}
-#page-gallery>.grid>.photo:nth-child(3) {
-    background-image: url(./../img/photo3.jpg);
-    background-position: left;
-}
-#page-gallery>.grid>.photo:nth-child(4) {
-    background-image: url(./../img/photo2.jpg);
-    background-position: right;
-}
-#page-gallery>.center-photo {
-    position: absolute;
+    height: auto;
     display: flex;
-    top:0px; left: 0px;
-    width: 100%;
-    height: 100%;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    background: #000000;
 }
-#page-gallery>.center-photo>.photo {
-    display: block;
-    width: 300px;
+
+#page-gallery .photo {
+    background-color: #ffffff;
+    margin: 8px;
+    border-radius: 8px;
+    padding: 8px;
+}
+#page-gallery .photo>div {
+    width: 200px;
     height: 300px;
-    background-image: url(./../img/photo1.jpg);
-    background-position: center;
-    background-size: cover;
-    border-radius: 50%;
-    border: 2px solid #ffffff;
+    background: salmon;
 }
