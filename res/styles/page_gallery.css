@@ -16,6 +16,7 @@
     padding: 8px;
     box-shadow: 0px 2px 4px 2px #00000070;
     transition-duration: 0.5s;
+    transition-delay: 0.1s;
     transition-property: transform;
 }
 #page-gallery .card .photo {
@@ -36,6 +37,9 @@
     background-image: url(./../img/pin_stick.png);
     background-position: center;
     background-size: contain;
+    background-repeat: no-repeat;
+    transition-duration: 0.4s;
+    transition-property: transform;
 }
 
 #page-gallery .card:nth-child(3n+1)::after { left: 55%; }
@@ -45,8 +49,16 @@
 #page-gallery .card:nth-child(3n+3)::after { left: 40%;}
 #page-gallery .card:nth-child(3n+3) { transform: rotateZ(2deg); }
 
+#page-gallery .card:hover::after {
+    transform: 
+        translate(-50%, -100%)
+        rotateZ(-20deg);
+}
 #page-gallery .card:hover {
-    transform: rotateZ(0deg);
+    z-index: 999;
+    transform: 
+        rotateZ(0deg)
+        scale(120%, 120%);
 }
 
 #page-gallery .card:nth-child(1) .photo {
