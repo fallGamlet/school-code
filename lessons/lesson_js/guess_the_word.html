@@ -85,7 +85,7 @@
             wordView.innerHTML = "";
             game.word = generateWord();
             game.letters = new Array(game.word.length);
-            game.tryCount = 1 + parseInt(new Number(game.word.length / 3).toFixed())
+            game.tryCount = 3 + parseInt(new Number(game.word.length / 2).toFixed())
             createWordViews(game.word.length).forEach(item => wordView.appendChild(item))
         }
 
@@ -104,7 +104,18 @@
         }
 
         function generateWord() {
-            return "word";
+            let words = [
+                "яблоко",
+                "апельсин",
+                "лимон",
+                "мандарин",
+                "дом",
+                "январь"
+            ];
+            let index = Math.floor(Math.random() * words.length)
+            let word = words[index];
+            console.log(`${index} ${word}`);
+            return word;
         }
         
         function updateLetters() {
@@ -136,13 +147,13 @@
             endGameCheking();
         }
 
-        function wrongLetterEntered(letter) {
-            game.mesageView.textContent = `Буквы <${letter}> нет в слове.\nПопыток осталось: ${game.tryCount}`;
-        }
-
         function goodLetterEntered(letter) {
             game.mesageView.textContent = `Буква угадана`;
+        }
+
+        function wrongLetterEntered(letter) {
             game.tryCount--;
+            game.mesageView.textContent = `Буквы <${letter}> нет в слове.\nПопыток осталось: ${game.tryCount}`;
         }
 
         function endGameCheking() {
