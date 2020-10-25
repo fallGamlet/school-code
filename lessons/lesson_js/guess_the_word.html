@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угадай слово</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            padding: 0px;
+        }
+        .game-board {
+            display: flex;
+            background: #0b606e;
+            color: #ffffff;
+            width: 320px;
+            height: auto;
+            padding: 16px;
+            margin: 0px auto;
+            align-self: center;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .message {
+            margin: 16px;
+            padding: 16px;
+            background: #ffffff25;
+            border-radius: 16px;
+        }
+        .word {
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .word>.letter {
+            border-radius: 4px;
+            border: 1px solid #ffffff;
+            width: 20px;
+            height: 20px;
+            margin: 2px;
+            text-align: center;
+        }
+        #input {
+            width: 30px;
+            margin: 16px;
+            max-lines: 1;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-board">
+        <div class="title">Попробуйте угадать слово</div>
+        <div class="message"></div>
+        <div class="word">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+        <input id="input" type="text" maxlength="1">
+    </div>
+    <script>
+        let game = createGame();
+        let input = document.querySelector("#input");
+        input.onkeyup = (event) => { 
+            if (event.key == "Enter") onInputEntered();
+            
+        };
+        startGame();
+
+        function createGame() {
+            let game = {};
+            game.mesageView = document.querySelector(".game-board .message");
+            game.wordView = document.querySelector(".game-board .word");
+            return game;
+        }
+
+        function startGame() {
+            let wordView = game.wordView
+            wordView.innerHTML = "";
+            game.word = generateWord();
+            game.letters = new Array(game.word.length);
+            game.tryCount = 3 + parseInt(new Number(game.word.length / 2).toFixed())
+            createWordViews(game.word.length).forEach(item => wordView.appendChild(item))
+        }
+
+        function createWordViews(length) {
+            let letters = [];
+            for (let i=0; i < length; i++) {
+                letters.push(createLetterView());
+            }
+            return letters;
+        }
+
+        function createLetterView() {
+            let view = document.createElement("div");
+            view.setAttribute("class", "letter");
+            return view;
+        }
+
+        function generateWord() {
+            let words = [
+                "яблоко",
+                "апельсин",
+                "лимон",
+                "мандарин",
+                "дом",
+                "январь"
+            ];
+            let index = Math.floor(Math.random() * words.length)
+            let word = words[index];
+            console.log(`${index} ${word}`);
+            return word;
+        }
+        
+        function updateLetters() {
+            let letterViews = game.wordView.querySelectorAll(".letter");
+            letterViews.forEach((view, index) => {
+                let letter = game.letters[index];
+                view.textContent = letter;
+            })
+        }
+
+        function onInputEntered(evnt) {
+            let value = input.value
+            let letterCount = 0;
+            game.word.split("").forEach((item, index) => {
+                if (value == item) {
+                    game.letters[index] = value;
+                    letterCount++;
+                }
+            });
+
+            if (letterCount > 0) {
+                goodLetterEntered(value);
+            } else {
+                wrongLetterEntered(value);
+            }
+
+            input.value = "";
+            updateLetters();
+            endGameCheking();
+        }
+
+        function goodLetterEntered(letter) {
+            game.mesageView.textContent = `Буква угадана`;
+        }
+
+        function wrongLetterEntered(letter) {
+            game.tryCount--;
+            game.mesageView.textContent = `Буквы <${letter}> нет в слове.\nПопыток осталось: ${game.tryCount}`;
+        }
+
+        function endGameCheking() {
+            // нужно придумать алгоритм определения выиграна игра, проиграна или можно играть дальше
+            if (isGameWin()) {
+                game.mesageView.textContent = `Вы отгадали слово <${game.word}>. \nПоздравляем!!!`;
+                startGame();
+                return;
+            }
+
+            if (isGameLose()) {
+                game.mesageView.textContent = `Вы проиграли. \nБыло загадано слово <${game.word}>.`;
+                startGame();
+                return;
+            }
+        }
+
+        function isGameWin() {
+            return game.word.split("")
+                .map((item, index) => item == game.letters[index])
+                .reduce((total, item) => total && item, true);
+        }
+
+        function isGameLose() {
+            return game.tryCount <= 0;
+        }
+
+    </script>
+</body>
+</html>

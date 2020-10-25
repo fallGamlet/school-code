@@ -1,0 +1,30 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background: #ffffff;
+}
+
+#logo-svg,
+#logo-png {
+    display: block;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#logo-svg {
+    /* background-image: url(./logo-icon.svg); */
+}
+
+#logo-png {
+    background-image: url(./logo-icon.png);
+}
+
+.twitter-svg {
+    display: block;
+    position: relative;
+    fill: #0084ff;
+}
