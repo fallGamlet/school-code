@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 0px;
+      margin: 0px;
+      font-size: 16px;
+    }
+    .sticker-board {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .sticker {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 200px;
+      background: #ffff7c;
+      /* background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthumbs.dreamstime.com%2Ft%2Fold-yellowish-paper-texture-creases-square-format-46882465.jpg&f=1&nofb=1); */
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 8px;
+      padding: 8px;
+      transform: rotate(2deg);
+      box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="sticker-board">
+    <div class="sticker"></div>
+    <div class="sticker"></div>
+    <div class="sticker"></div>
+    <div class="sticker"></div>
+    <div class="sticker"></div>
+    <div class="sticker"></div>
+    <div class="sticker"></div>
+    <div class="sticker"></div>
+  </div>
+  <script>
+    const stickers = document.querySelectorAll(".sticker-board .sticker")
+    fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(response => response.json())
+    .then(items => {
+      stickers
+      .forEach((sticker, index) => {
+        sticker.textContent = items[index].title
+      });
+    })
+    .catch(console.log);
+  </script>
+</body>
+</html>
