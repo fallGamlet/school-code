@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .circle-blue {
+      position: relative;
+      display: inline-block;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #0b70aa;
+      margin: 16px;
+      transition: all 0.5s;
+    }
+    .square-green {
+      position: relative;
+      display: inline-block;
+      width: 90px;
+      height: 90px;
+      background: #28960c;
+      margin: 16px;
+      transition: all 0.5s;
+    }
+  </style>
+</head>
+<body>
+  <div class="circle-blue" id="circle-1"></div>
+  <div class="circle-blue" id="circle-2"></div>
+  <div class="circle-blue" id="circle-3"></div>
+  <div class="square-green" id="square-1"></div>
+  <div class="square-green" id="square-2"></div>
+  <div class="square-green" id="square-3"></div>
+
+  <script>
+    let circle1 = document.querySelector("#circle-1")
+    let circle2 = document.querySelector("#circle-2")
+    let circle3 = document.querySelector("#circle-3")
+    let square1 = document.querySelector("#square-1")
+    let square2 = document.querySelector("#square-2")
+    let square3 = document.querySelector("#square-3")
+  </script>
+</body>
+</html>
