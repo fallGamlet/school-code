@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 4</title>
+  <style>
+    #area-wrapper {
+      position: relative;
+      display: block;
+    }
+    .ball {
+      position: relative;
+      display: inline-block;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-color: coral;
+      transition: all 200ms linear;
+    }
+    .ball-broken {
+      background-color: #55555560;
+      width: 32px;
+      height: 32px;
+      margin:16px;
+    }
+  </style>
+</head>
+<body>
+  <div id="area-wrapper">
+      <span class="ball"></span>
+      <span class="ball"></span>
+      <span class="ball"></span>
+      <span class="ball"></span>
+  </div>
+  <script>
+    function toggleBroken(ball) {
+      let classes = ball.classList;
+      if (classes.contains("ball-broken")) {
+        ball.classList.remove("ball-broken")
+      } else {
+        ball.classList.add("ball-broken")
+      }
+    }
+
+    function addClickHandler(ball) {
+      ball.addEventListener("click", function(event) {
+        toggleBroken(event.target);
+      })
+    }
+
+    let balls = document.querySelectorAll(".ball")
+    balls.forEach(addClickHandler);
+  </script>
+</body>
+</html>
