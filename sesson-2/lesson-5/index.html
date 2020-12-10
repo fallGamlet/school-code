@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 5</title>
+  <style>
+    .button {
+      position: relative;
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 16px;
+      background: #0957af;
+      color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 2px 0px 4px 4px #00000030;
+      cursor: pointer;
+      transition: all 200ms linear;
+    }
+    .button:hover {
+      background: #07448a;
+      box-shadow: 2px 0px 6px 8px #00000020;
+    }
+
+    #area-wrapper {
+      position: relative;
+      display: block;
+    }
+    .ball {
+      position: relative;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-color: coral;
+      color: #ffffff;
+      cursor: pointer;
+      transition: all 200ms linear;
+    }
+    .ball-broken {
+      background-color: #55555500;
+      color: #55555500;
+      width: 0px;
+      height: 0px;
+    }
+  </style>
+</head>
+<body>
+  <div id="button-add-ball" class="button">Добавить шар</div>
+  <div id="area-wrapper">
+  </div>
+  <script>
+    let lastId = 0;
+
+    const createBall = () => {
+      lastId++;
+      const id = lastId;
+      const ball = document.createElement("span");
+      ball.textContent = id;
+      ball.className = 'ball';
+      ball.id = `ball-${id}-element`;
+      ball.addEventListener("click", (event) => {
+        makeBrokenAndDelete(event.target);
+      });
+      return ball;
+    }
+
+    function makeBrokenAndDelete(ball) {
+      ball.classList.add("ball-broken");
+      setTimeout(
+        () => {
+          ball.remove();
+        },
+        200
+      )
+    }
+
+    let areaWrapper = document.querySelector("#area-wrapper");
+    const ballCount = 5;
+
+    for (let index = 0; index < ballCount; index++) {
+      areaWrapper.appendChild(createBall());
+    }
+    
+    let balls = document.querySelectorAll(".ball");
+    let buttonCreateBall = document.querySelector("#button-add-ball");
+    buttonCreateBall.addEventListener("click", () => {
+      areaWrapper.appendChild(createBall());
+    });
+  </script>
+</body>
+</html>
