@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .circle {
+      width: 100px;
+      height: 100px;
+      background: #ff0000;
+      border-radius: 50%;
+      border: 5px solid #ffff00;
+    }
+    .square {
+      width: 150px;
+      height: 150px;
+      background: #0000ff;
+    }
+    .square-circle {
+      width: 164px;
+      height: 164px;
+      background: #00ff00;
+      border-radius: 25%;
+    }
+  </style>
+</head>
+<body>
+  <div class="circle"></div>
+  <div class="square"></div>
+  <div class="square-circle"></div>
+
+  <script>
+    let circle = document.querySelector(".circle")
+    let square = document.querySelector(".square")
+    let squareCircle = document.querySelector(".square-circle")
+
+    circle.style.width = "200px";
+    circle.style.backgroundColor = "#AAFF44";
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шарик меняющий цвета</title>
+  <style>
+    body {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      align-content: center;
+      flex-direction: row;
+    }
+    .ball {
+      position: relative;
+      display: inline-block;
+      width: 250px;
+      height: 250px;
+      background-color: #aaaaaa;
+      border-radius: 50%;
+      transition-property: all;
+      transition-duration: 200ms;
+    }
+  </style>
+</head>
+<body>
+  <div class="ball"></div>
+  <script>
+    let colors = ["red", "orange", "yellow", "green", "lightblue", "blue", "violet"];
+    let clickClount = 0;
+    const ball = document.querySelector(".ball");
+
+    function updateBallColor() {
+      let index = clickClount % colors.length;
+      let color = colors[index];
+      console.log(`index: ${index}, color: ${color}`);
+      ball.style.backgroundColor = color
+    }
+
+    updateBallColor();
+    ball.addEventListener("click", (event) => {
+      clickClount++;
+      updateBallColor();
+    });
+  </script>
+</body>
+</html>

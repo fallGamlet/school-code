@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex box lesson</title>
+  <style>
+    body {
+      padding: 0px;
+      font-size: 16px;
+    }
+    .container {
+      position: relative;
+      background-color: #aaaaaa;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0px;
+      overflow: hidden;
+    }
+    .card {
+      position: relative;
+      display: inline-block;
+      margin: 4px;
+      flex: 1;
+      background-color: #65c4e9;
+      border: 1px solid #0e818a;
+    }
+    #profile-2 { flex: 2; order: 1; }
+    #profile-3 { align-self:stretch; }
+    #profile-6 { order: -1; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="profile-1" class="card">Profile 1. <br>Для начала нам нужно выбрать, какие элементы следует выкладывать в виде flex</div>
+    <div id="profile-2" class="card">Profile 2. <br>Для этого мы устанавливаем специальное значение display в родительском элементе тех элементов, которые вы хотите оформить. В нашем случае мы хотим расположить элементы <article>, поэтому мы устанавливаем это значение на <section> (который становится flex контейнером):</div>
+    <div id="profile-3" class="card">Profile 3.</div>
+    <div id="profile-4" class="card">Profile 4. <br>Так, всего одно объявление делает всё, что нам нужно — здорово, правда?<br></div>
+    <div id="profile-5" class="card">Profile 5. <br>Примечание: Вы также можете установить значение display inline-flex, если хотите расставить inline элементы как flex блоки.</div>
+    <div id="profile-6" class="card">Profile 6. <br>Главная ось (main axis) проходит в том направлении, вдоль которого расположены Flex элементы (например, в строку слева направо или вдоль колонок вниз.) Начало и конец этой оси называются main start и main end.</div>
+  </div>
+</body>
+</html>
