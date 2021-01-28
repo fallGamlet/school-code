@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cards</title>
+  <style>
+    body {
+      background-color: #ffffff;
+      padding: 0px;
+      margin: 0px;
+      font-size: 14px;
+    }
+    .cards-container {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .cards {
+      position: relative;
+      min-width: 150px;
+      min-height: 200px;
+      width: auto;
+      height: auto;
+      background-color: #ffffff;
+      margin: 8px;
+      border: 0px solid transparent;
+      border-radius: 16px;
+      box-shadow: 0px 2px 4px 2px #aaaaaa;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      cursor: pointer;
+      transition: all;
+      transition-duration: 250ms;
+    }
+    .cards:hover {
+      box-shadow: 0px 2px 8px 4px #6aa1a3;
+      transform: scale(1.1, 1.1)
+                translate(0%, -10%);
+      z-index: 10;
+      
+    }
+    #card-1 {
+      background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F000%2F190%2F718%2Fnon_2x%2F8-march-women-s-day-vector.jpg&f=1&nofb=1);
+    }
+    #card-2 {
+      background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.jHU1usLud5teOZFdMmZ4FgAAAA%26pid%3DApi&f=1);
+    }
+    #card-3 {
+      background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FEfrJ60dSaEM%2Fhqdefault.jpg&f=1&nofb=1);
+    }
+    #card-4 {
+      background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcomps.canstockphoto.com%2F8-march-international-womens-day-eps-vector_csp54963385.jpg&f=1&nofb=1);
+    }
+    #card-5 {
+      background-color: #db14cb;
+      color: #ffffff;
+    }
+    .cards>.title {
+      position: relative;
+      display: block;
+      text-align: center;
+      font-size: 120%;
+      margin: 8px;
+    }
+    .cards>.description {
+      position: relative;
+      display: block;
+      text-align: start;
+      font-size: 90%;
+      margin: 8px;
+    }
+    .cards>img {
+      width: 50%;
+    }
+    #card-5 .description {
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <div class="cards-container">
+    <div class="cards" id="card-1"></div>
+    <div class="cards" id="card-2"></div>
+    <div class="cards" id="card-3"></div>
+    <div class="cards" id="card-4"></div>
+    <div class="cards" id="card-5">
+      <span class="title">8 Марта</span>
+      <span class="description">
+С 8 Марта поздравляю!
+Солнышка лучей желаю,
+Ароматов всех цветов
+И желанных самых слов.
+
+Позитива в жизни чаще,
+Чтоб судьба была послаще,
+Чтоб везло в делах бы личных,
+Новостей тебе отличных!
+      </span>
+    </div>
+    <div class="cards" id="card-6">
+      <span class="title">8 Марта</span>
+      <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F3.bp.blogspot.com%2F_g9wrQqVvujo%2FSdIUZnssh3I%2FAAAAAAAAATA%2FV8UaHPc1nfM%2Fs200%2F03312008.jpg&f=1&nofb=1">
+      <span class="description">
+        Хочу я в этот день желать
+        <br>Любви и радости весенней,
+        <br>Приятных слов, любимых глаз,
+        <br>Быть в превосходном настроении!
+        <br>
+        <br>Пусть все исполнятся мечты
+        <br>И все заветные желания!
+        <br>Всегда душевной красоты,
+        <br>Здоровья, счастья, понимания!
+      </span>
+    </div>
+  </div>
+  <div class="card-details"></div>
+</body>
+</html>
