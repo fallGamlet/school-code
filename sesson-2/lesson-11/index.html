@@ -8,12 +8,6 @@
   <style>
     body {
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      flex-wrap: nowrap;
-      width: 100vw;
-      height: 100vh;
       padding: 0px;
       margin: 0px;
       font-size: 16px;
@@ -21,26 +15,30 @@
     .chat-panel {
       position: relative;
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       height: 100vh;
       width: 100vw;
       background: #ffffff;
       padding: 0px;
       margin: 0px;
-      overflow: hidden;
+    }
+    .chat-messages-wrap {
+      position: relative;
+      flex: 1 1 auto;
+      overflow-y: scroll;
     }
     .chat-messages {
       position: relative;
       display: flex;
       flex-direction: column;
-      flex-grow: 1;
-      max-height: 100vh;
-      background: #91d5f5;
       justify-content: flex-end;
+      background: #0872a321;
+      min-height: 100%;
     }
     .chat-input {
       position: relative;
       display: flex;
+      flex: 0 0 auto;
     }
     .chat-input>input[name="message"] {
       flex-grow: 1;
@@ -52,49 +50,66 @@
       width: 40px;
       height: 40px;
     }
-    .my-message {
-      position: relative;
-      display: inline-block;
-      align-self: flex-end;
-      background: #eef591;
-      padding: 8px;
-      border-radius: 4px;
-      margin: 2px;
-    }
-    .other-message {
+    .message {
       position: relative;
       display: inline-block;
       align-self: flex-start;
-      background: #fcfcfc;
       padding: 8px;
-      border-radius: 4px;
-      margin: 2px;
+      border-radius: 8px;
+      margin: 0px 8px 4px;
+      max-width: 90%;
+      animation: show-anim 0.5s ease-in 0.1s both;
+    }
+    .my-message {
+      align-self: flex-end;
+      background: #eef591;
+      border-bottom-right-radius: 0px;
+    }
+    .other-message {
+      background: #fcfcfc;
+      border-bottom-left-radius: 0px;
+    }
+
+    @keyframes show-anim {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   </style>
 </head>
 <body>
   <div class="chat-panel">
-    
+    <div class="chat-messages-wrap">
+      <div class="chat-messages"></div>
+    </div>
+
     <div class="chat-input">
       <input type="text" name="message" placeholder="Enter a message">
       <div class="button-send"></div>
     </div>
-
-    <div class="chat-messages">
-    </div>
-
   </div>
+
   <script>
     const messagesContainer = document.querySelector(".chat-messages");
     const inputField = document.querySelector('input[name="message"]');
     const sendButton = document.querySelector(".button-send");
 
+    function addMessageView(view) {
+      messagesContainer.append(view);
+      view.scrollIntoView()
+    }
+
     function createMessageView(text, isMyMessage) {
       const view = document.createElement('span');
       view.textContent = text;
       if (isMyMessage) {
+        view.classList.add("message");
         view.classList.add("my-message");
       } else { 
+        view.classList.add("message");
         view.classList.add("other-message");
       }
       return view;
@@ -103,7 +118,7 @@
     function sendMessageByBot(text) {
       setTimeout(() => {
         const view = createMessageView("echo: "+text, false)
-        messagesContainer.append(view);
+        addMessageView(view);
       }, 1000);
     }
 
@@ -112,7 +127,7 @@
       if (message == "") return;
 
       inputField.value = ""
-      messagesContainer.append(createMessageView(message, true));
+      addMessageView(createMessageView(message, true));
 
       sendMessageByBot(message);
     }
