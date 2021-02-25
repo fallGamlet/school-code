@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,6 +54,7 @@
       position: relative;
       display: inline-block;
       align-self: flex-start;
+      word-wrap: break-word;
       padding: 8px;
       border-radius: 8px;
       margin: 0px 8px 4px;
@@ -105,11 +106,10 @@
     function createMessageView(text, isMyMessage) {
       const view = document.createElement('span');
       view.textContent = text;
+      view.classList.add("message");
       if (isMyMessage) {
-        view.classList.add("message");
         view.classList.add("my-message");
       } else { 
-        view.classList.add("message");
         view.classList.add("other-message");
       }
       return view;
@@ -117,9 +117,28 @@
 
     function sendMessageByBot(text) {
       setTimeout(() => {
-        const view = createMessageView("echo: "+text, false)
+        const answerText = getAnswerText(text)
+        const view = createMessageView(answerText, false)
         addMessageView(view);
       }, 1000);
+    }
+
+    function getAnswerText(text) {
+      text = text.toLowerCase()
+      if (text.includes("hello")) {
+        return "Hello !!";
+      }
+      if (text.includes("привет")) {
+        return "Привет!!";
+      }
+      if (text.includes("?")) {
+        return 'Даже не знаю что на это ответить "("...';
+      }
+      if (text.length > 30) {
+        return "Как интересно...))";
+      }
+      
+      return "А что еще раскажешь интересного?";
     }
 
     function sendMessage() {
