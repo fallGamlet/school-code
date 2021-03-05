@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8 Марта</title>
+  <style>
+    body {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px; 
+      margin: 0px;
+      width: 100vw;
+      height: 100vh;
+      background: #ffffff;
+      overflow: hidden;
+    }
+    .card-8march-container {
+      position: relative;
+      display: block;
+      width: 90vmin;
+      height: 90vmin;
+      background: #ff9bfa;
+      border-radius: 20px;
+      box-shadow: 0px 4px 4px 4px #00000042;
+      padding: 0px; 
+      margin: 0px;
+    }
+    .title {
+      position: absolute;
+      top: 3%;
+      left: 20px;
+      right: 20px;
+      text-align: center;
+      font-size: 48px;
+      color: #a52c9f;
+    }
+    .number8-top,
+    .number8-bottom {
+      position: absolute;
+      width: 40%; height: 40%;
+      top: 12%;
+      left: 30%;
+      border-radius: 50%;
+      /* clip-path: circle(20% at 50% 30%); */
+      background-color: #ab00bb;
+      animation: 5s linear 0s infinite alternate color-anim;
+    }
+    .number8-bottom {
+      width: 50%; height: 50%;
+      top: 45%;
+      left: 25%;
+      /* clip-path: circle(30% at 50% 70%); */
+    }
+    .number8-top::after, 
+    .number8-bottom::after {
+      content: '';
+      position: absolute;
+      background-color: #ff9bfa;
+      border-radius: 50%;
+      top: 20%; left: 20%;
+      bottom: 20%; right: 20%;
+    }
+    .flower {
+      position: absolute;
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 10%;
+      height: 10%;
+      margin-left: -5%;
+      bottom: 25%;
+      left: 50%;
+      animation: 3s ease-in 0s infinite alternate grow-anim;
+    }
+    #flower-1 { 
+      background-image: url(./assets/flower-11.svg);
+      rotate: 0deg;
+    }
+    #flower-2 { 
+      background-image: url(./assets/flower-12.svg);
+      rotate: 33deg;
+    }
+    #flower-3 { 
+      background-image: url(./assets/flower-13.svg);
+      rotate: 65deg;
+    }
+    #flower-4 { 
+      background-image: url(./assets/flower-14.svg);
+      rotate: 98deg;
+    }
+    #flower-5 { 
+      background-image: url(./assets/flower-15.svg);
+      rotate: 131deg;
+    }
+    #flower-6 { 
+      background-image: url(./assets/flower-16.svg);
+      rotate: 164deg;
+    }
+    #flower-7 { 
+      background-image: url(./assets/flower-17.svg);
+      rotate: 196deg;
+    }
+    #flower-8 { 
+      background-image: url(./assets/flower-18.svg);
+      rotate: 229deg;
+    }
+    #flower-9 { 
+      background-image: url(./assets/flower-20.svg);
+      rotate: 262deg;
+    }
+    #flower-10 { 
+      background-image: url(./assets/flower-21.svg);
+      rotate: 295deg;
+    }
+    #flower-11 { 
+      background-image: url(./assets/flower-22.svg);
+      rotate: 327deg;
+    }
+
+    @keyframes grow-anim {
+      0% {
+        transform: translateY(0%) scale(0.0);
+        opacity: 0;
+      }
+      20% {
+        transform: translateY(-200%) scale(1.5);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-200%) scale(2) rotate(15deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes color-anim {
+      0% {
+        background-color: #ff72f8;
+      } 
+      30% {
+        background-color: #72a3ff;
+      }
+      60% {
+        background-color: #f6ff72;
+      }
+      100% {
+        background-color: #ff5a5a;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card-8march-container">
+    <div class="number8-top"></div>
+    <div class="number8-bottom"></div>
+    <div class="title">Поздравляю</div>
+    <span id="flower-11" class="flower"></span>
+    <span id="flower-10" class="flower"></span>
+    <span id="flower-9" class="flower"></span>
+    <span id="flower-8" class="flower"></span>
+    <span id="flower-6" class="flower"></span>
+    <span id="flower-5" class="flower"></span>
+    <span id="flower-7" class="flower"></span>
+    <span id="flower-4" class="flower"></span>
+    <span id="flower-3" class="flower"></span>
+    <span id="flower-2" class="flower"></span>
+    <span id="flower-1" class="flower"></span>
+  </div>
+  
+</body>
+</html>

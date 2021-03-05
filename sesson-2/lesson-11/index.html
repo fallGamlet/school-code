@@ -125,10 +125,9 @@
 
     function getAnswerText(text) {
       text = text.toLowerCase()
-      if (text.includes("hello")) {
-        return "Hello !!";
-      }
-      if (text.includes("привет")) {
+      const hiWords = ["hello", "hi", "привет", 'здарова'];
+      const isHiWordExists = hiWords.some(value => text.includes(value))
+      if (isHiWordExists) {
         return "Привет!!";
       }
       if (text.includes("?")) {
@@ -137,6 +136,7 @@
       if (text.length > 30) {
         return "Как интересно...))";
       }
+      const arrMsg = ['one', 'two', '1'];
       
       return "А что еще раскажешь интересного?";
     }
