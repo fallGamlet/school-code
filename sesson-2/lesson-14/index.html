@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Story</title>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+      min-width: 100vw;
+      min-height: 100vh;
+      background-color: orange;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .flower {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      animation: 3s ease-out grom-scale-anim;
+    }
+    .flower>.center {
+      position: absolute;
+      left: 30%;
+      top: 30%;
+      bottom: 30%;
+      right: 30%;
+      background-color: #ffffff;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .flower>.petal {
+      position: absolute;
+      top: 0%;
+      bottom: 50%;
+      left: 40%;
+      right: 40%;
+      background-color: #ff435c;
+      border-radius: 50%;
+      z-index: 0;
+      transition: all;
+      transition-duration: 1s;
+      /* transform: translateY(50%) rotate(45deg) translateY(-50%); */
+    }
+    .flower>.petal:nth-child(1) {
+      transform: translateY(50%) rotate(0deg) translateY(-50%);
+      background-color: #0c2d8a;
+    }
+
+    @keyframes grom-scale-anim {
+      from {
+        transform: scale(0.1);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="flower">
+    <span class="center"></span>
+  </div>
+  <script>
+    const flowerView = document.querySelector(".flower")
+
+    const petalCount = 12;
+    const dAngle = 360 / petalCount;
+    for (let index = 0; index < petalCount; index++) {
+      const petalView = document.createElement("span");
+      petalView.classList.add("petal");
+      flowerView.appendChild(petalView);
+    }
+
+    setTimeout(() => {
+      const petals = document.querySelectorAll(".flower>.petal")
+      petals.forEach((view, index) => {
+        const angle = index * dAngle
+        view.style.transform = `translateY(50%) rotate(${angle}deg) translateY(-50%)`
+      });
+    }, 500);
+
+  </script>
+</body>
+</html>
