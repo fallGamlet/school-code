@@ -1,0 +1,97 @@
+body {
+  position: relative;
+  display: block;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 100vw;
+  height: 100vh;
+}
+.column-item {
+  position: relative;
+  min-width: 0px;
+  min-height: 0px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  background-image: url(https://nz4.ru/wp-content/uploads/2014/12/94.jpg);
+  background-repeat: no-repeat;
+  background-position-x: 20%;
+  background-size: 384px 100% cover;
+  background-attachment: fixed;
+}
+.column-item .inner-content {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  width: 0%;
+  height: 100%;
+  background: #58585863;
+  opacity: 0;
+  transition: all 0.3s ease-in;
+}
+.column-item:hover .inner-content {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+.content1 {
+  background-position-x: 0%;
+}
+.content2 {
+  background-position-x: 20%;
+}
+.content3 {
+  background-position-x: 40%;
+}
+.content4 {
+  background-position-x: 60%;
+}
+.content5 {
+  background-position-x: 80%;
+}
+
+.content2 .inner-content {
+  opacity: 0;
+  bottom: 0%;
+  height: 0%;
+  width: 100%;
+  background: #06d4d485;
+}
+.content2:hover .inner-content {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.content4 .inner-content {
+  opacity: 0;
+  height: 0%;
+  width: 100%;
+  background: #d4a40685;
+}
+.content4:hover .inner-content {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.content5 .inner-content {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  background: #ffffff85;
+  clip-path: inset(0% 100% 0% 0%);
+  transition: all 0.3s ease-in;
+}
+.content5:hover .inner-content {
+  clip-path: inset(0% 0% 0% 0%);
+}
