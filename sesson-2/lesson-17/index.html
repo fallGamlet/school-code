@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll animations</title>
+  <style>
+    body {
+      position: relative;
+      padding: 0;
+      margin: 0;
+      background: #3d3d3d;
+    }
+    #scroll-title {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      width: auto;
+      height: auto;
+      min-width: 100px;
+      background: #ffffff;
+      color: #3d3d3d;
+      border-radius: 4px;
+      padding: 8px;
+    }
+    .progress-bar {
+      position: fixed;
+      background: #ffee00c0;
+      height: 8px;
+      width: 0%;
+      top: 0px;
+      left: 0px;
+      animation: progress 1s linear;
+      animation-play-state: paused;
+      animation-delay: calc(var(--scroll) * -1s);
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+    @keyframes progress {
+      to {
+        width: 100%;
+      }
+    }
+
+    .big-content {
+      min-height: 400vh;
+    }
+    .content-text {
+      position: relative;
+      background: #134574;
+      color: #fff;
+      font-size: 32px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .content-text:nth-child(2n+1) {
+      background: #134574;
+    }
+    .content-text:nth-child(2n+2) {
+      background: #0c4e8b;
+    }
+
+    .bg-color-changed {
+      animation: bg-color-changing 1s linear both;
+    }
+    @keyframes bg-color-changing {
+      to {
+        background-color: #087d8d;
+      }
+    }
+
+    img#spiderman {
+      position: absolute;
+      width: 200px;
+      height: auto;
+      left: 0%;
+      top: 30%;
+      transition-property: all;
+      transition-duration: 1s;
+    }
+    .hidden-left {
+      transform: translateX(-100%);
+    }
+    .slide-right {
+      transform: translateX(100%);
+    }
+
+
+    .cirlce-box {
+      position: fixed;
+      display: flex;
+      top: 0%;
+      left: 0%;
+      width: 100vw;
+      height: 100vh;
+      background: #b3ff001c;
+      justify-content: center;
+      align-items: center;
+    }
+    .cirlce-box > .circle {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      background: #ffffff6e;
+      border-radius: 50%;
+      transition: all 1s;
+    }
+    .cirlce-box > .circle::after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      left: 60%;
+      top: -20%;
+      position: relative;
+      width: 50%;
+      height: 50%;
+      background: #ffffff6e;
+      border-radius: 50%;
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="big-content">
+    <div class="content-text">1</div>
+    <div class="content-text">2</div>
+    <div class="content-text">3</div>
+    <div class="content-text">
+      4
+      <img id="spiderman" class="hidden-left" src="http://clipartmag.com/images/spiderman-logo-clipart-13.png">
+    </div>
+    <div class="content-text">5</div>
+  </div>
+  <div class="progress-bar"></div>
+
+  <div class="cirlce-box">
+    <div class="circle"></div>
+  </div>
+
+  <div id="scroll-title"></div>
+
+  <script>
+    const scrollView = document.querySelector('#scroll-title')
+    const contentTextViews = document.querySelectorAll('.content-text')
+    const spidermanView = document.querySelector("img#spiderman")
+    const circleView = document.querySelector('.cirlce-box > .circle')
+
+    window.addEventListener('scroll', () => {
+      const scrollCurrent = window.pageYOffset
+      const scrollMax = document.body.offsetHeight - window.innerHeight
+      const scroll = scrollCurrent / scrollMax
+      const msg = `scroll = ${scrollCurrent}px, ${(scroll*100).toFixed(2)}\%`
+      // console.log(msg)
+      scrollView.textContent = msg
+      document.body.style.setProperty('--scroll', scroll);
+      scrollHandler(scroll, scrollCurrent)
+    }, false);
+
+    function scrollHandler(scroll, scrollCurrent) {
+      scrollhandlerForChangeBackground(scroll, scrollCurrent)
+      scrollhandlerForSpidermanSlide(scroll, scrollCurrent)
+      scrollhandlerForCicler(scroll, scrollCurrent)
+    }
+
+    function scrollhandlerForChangeBackground(scroll, scrollCurrent) {
+      const cssClass = 'bg-color-changed'
+      contentTextViews.forEach(view => {
+        const top = view.offsetTop - 16
+        const bottom = view.offsetTop + view.offsetHeight
+        if (scrollCurrent >= top && scrollCurrent < bottom) {
+          view.classList.add(cssClass)
+        } else {
+          view.classList.remove(cssClass)
+        }
+      })
+    }
+  
+    function scrollhandlerForSpidermanSlide(scroll, scrollCurrent) {
+      const view = spidermanView.parentNode
+      const top = view.offsetTop - 0.5*window.innerHeight
+      const cssClass = 'slide-right'
+      if (scrollCurrent >= top) {
+        spidermanView.classList.add(cssClass)
+      } else {
+        spidermanView.classList.remove(cssClass)
+      }
+    }
+  
+    function scrollhandlerForCicler(scroll, scrollCurrent) {
+      const scale = 1 + 2*scroll
+      circleView.style.transform = `scale(${scale})`
+    }
+  </script>
+</body>
+
+</html>
