@@ -1,0 +1,23 @@
+.view-item {
+  position: relative;
+  display: inline-flex;
+  background: #076e88;
+  color: #fff;
+  padding: 16dp;
+  min-height: 50px;
+  min-width: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.view-item:hover, .item-hovered {
+  background: #1c2785;
+}
+.square {
+  border-radius: 0px;
+}
+.circle {
+  border-radius: 50%;
+}
+.rounded {
+  border-radius: 16px;
+}
