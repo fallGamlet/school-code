@@ -1,6 +1,4 @@
 
-
-
 const views = createViews()
 
 function createViews() {
