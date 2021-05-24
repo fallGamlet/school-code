@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пробная страника + CSS</title>
+  <style>
+    body {
+      background-color: #0c5e8d;
+      color: white;
+      font-size: 20px;
+    }
+    .wrapper {
+      background-color: rgba(0, 0, 0, 0.199);
+      color: rgba(255, 255, 255, 0.575);
+      margin: 16px;
+      border-radius: 16px;
+      font-weight: bold;
+    }
+    .my-class {
+      position: relative;
+      display: inline-block;
+      background-color: #4bb7f5;
+      color: black;
+      font-weight: normal;
+      padding: 8px;
+      margin: 8px;
+      cursor: pointer;
+      transition: all 1s;
+    }
+    .my-class:hover {
+      background-color: black;
+      color: #4bb7f5;
+      border-radius: 16px;
+    }
+    .my-class:focus {
+      background-color: #06756c;
+      color: #ffffff;
+    }
+    .my-link {
+      position: relative;
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 150px;
+      right: 50px;
+      bottom: 100px;
+      background: #ffffff56;
+      color: black;
+      text-decoration: underline #07fa0798 10px;
+    }
+    .my-link:visited {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  Просто какой-то текс
+  
+  <div class="wrapper">
+
+    <a class="my-link" href="./sdhfd">Моя ссылка</a>
+    <button class="my-class">Hello DIV 1</button>
+    <div class="my-class">Hello DIV 2</div>
+    <span class="my-class">Hello SPAN 1</span>
+    <span class="my-class">Hello SPAN 2</span>
+    <span class="my-class">Hello SPAN 3</span>
+    <span>Simple SPAN 4</span>
+    <span>Simple SPAN 5</span>
+
+  </div>
+
+</body>
+
+</html>
