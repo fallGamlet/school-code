@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS - Position</title>
+  <style>
+    body {
+      background: #303030;
+      color: #fff;
+      margin: 0px;
+    }
+    div {
+      display: inline-block;
+      padding: 16px;
+      background: #77777788;
+      margin: 8px;
+      border: solid 4px #fff;
+    }
+    .element-static {
+      position: static;
+      top: 20px; /* свойство top не работает для position: static */
+    }
+    .element-relative {
+      position: relative;
+      top: 20px;
+    }
+    .element-absolute {
+      position: absolute;
+      height: 20%;
+      top: 90%;
+      left: 30%;
+    }
+    
+    .element-fixed {
+      position: fixed;
+      top: 45%;
+      left: 40%;
+    }
+  </style>
+</head>
+<body>
+  <div class="element-static">Static 1</div>
+  <div class="element-static">Static 2</div>
+  <div class="element-static">Static 3</div>
+  
+  <div class="element-relative">Relative 1</div>
+  <div class="element-relative">Relative 2</div>
+  <div class="element-relative">Relative 3</div>
+  
+  <div class="element-absolute">Absolute</div>
+  
+  <div class="element-fixed">Fixed</div>
+</body>
+</html>
