@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My page</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            font-size: 30px;
+        }
+        a {
+            display: inline-block;
+            margin: 8px;
+            padding: 8px 16px;
+            color: #ffffff;
+            background: #0044ff;
+            text-decoration: none;
+            transition-property: all;
+            transition-duration: 0.5s;
+            border: 1px solid transparent;
+            border-radius: 0px;
+        }
+        a:visited { background: #8400ff; }
+        a:active { background: #ff3838; }
+        a:hover {
+            color: #0044ff;
+            background: #ffffff;
+            border-color: #0044ff;
+            border-radius: 16px;
+        }
+        .my-btn {
+            display: inline-block;
+            color: darkblue;
+            background: skyblue;
+            padding: 8px;
+        }
+        .my-btn:hover {
+            color: skyblue;
+            background: darkblue;
+        }
+        .my-btn:focus {
+            padding: 32px;
+        }
+    </style>
+</head>
+<body>
+    <a href="page1.html">Page 1</a>
+    <a href="page2.html">Page 2</a>
+    <div class="my-btn" tabindex="2">Press me 1</div>
+    <div class="my-btn" tabindex="1">Press me 2</div>
+</body>
+</html>
