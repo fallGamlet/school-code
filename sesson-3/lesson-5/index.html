@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex example</title>
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            position: relative;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+            justify-content: stretch;
+            background-color: lightgray;
+            align-items: stretch;
+        }
+        .my-flex {
+            display: inline-flex;
+            position: relative;
+            width: 40px;
+            margin: 8px;
+            flex-grow: 1;
+            flex-wrap: wrap-reverse;
+            justify-content: space-around;
+            align-items: flex-end;
+        }
+        #flex-row-container {
+            flex-direction: row;
+            background-color: #0068c977;
+        }
+        #flex-column-container {
+            flex-direction: column;
+            background-color: #bcc90077;
+        }
+        span {
+            width: 60px;
+            height: 60px;
+            background: #ff75e1;
+            border: 1px solid black;
+        }
+        .the-one {
+            background: #ff7575;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="flex-row-container"
+        class="my-flex">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span class="the-one">4</span>
+        <span>5</span>
+    </div>
+    
+    <div id="flex-column-container"
+        class="my-flex">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span class="the-one">4</span>
+        <span>5</span>
+    </div>
+</body>
+</html>
