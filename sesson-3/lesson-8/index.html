@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+        .container {
+            background: #38139e;
+            width: 80%;
+            margin: 50px;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .container > div {
+            width: 150px;
+            height: 150px;
+            background: red;
+        }
+        .container .circle { 
+            border-radius: 50%; 
+            background: yellow;
+        }
+        .rectangle {
+            min-width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .rectangle .circle {
+            background: green;
+            width: 100px;
+            height: 100px;
+        }
+        .circle > .circle {
+            width: 50%;
+            height: 50%;
+            margin-top: 25%;
+            margin-left: 25%;
+            background: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div></div>
+        <div></div>
+        <div class="circle"></div>
+        <div class="circle">
+            <div class="circle"></div>
+        </div>
+        <div class="rectangle">
+            <div class="circle"></div>
+            <div class="circle">
+                <div class="circle"></div>
+            </div>
+            <div class="circle"></div>
+        </div>
+    </div>
+</body>
+</html>
