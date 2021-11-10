@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions Example</title>
+
+</head>
+
+<body>
+    <script>
+        function printNumbers(num) {
+            let result = '';
+            for(let i=0; i < num; i++) {
+                result += i+' ';
+            }
+            console.log(result);
+        }
+        
+        function printPiramid(s) {
+            const count = 4;
+            for (let i = 0; i < count; i++) {
+                let symbols = (s + "").repeat(i * 2 + 1);
+                let spaces = ' '.repeat(count - i);
+                console.log(`${spaces}${symbols}`);
+            }
+        }
+
+        printNumbers(4);
+        printNumbers(13);
+        printNumbers(42);
+
+        printPiramid('*');
+        printPiramid('^');
+        printPiramid('😀');
+    </script>
+</body>
+
+</html>
