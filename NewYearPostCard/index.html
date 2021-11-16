@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Year Postcard</title>
+  <style>
+    body {
+      background: #000000;
+      margin: 0px;
+      padding: 0px;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+    .moon {
+      position: absolute;
+      bottom: 80%;
+      display: inline-block;
+      width: 10vh;
+      height: 10vh;
+      margin-left: 35%;
+      border-radius: 50%;
+      background-color: #ffffff;
+      background: radial-gradient(circle, #ffffff 0%, #ffffff4f 35%, #ffffff1a 65%, #ffffff00 100%);
+      animation-name: moon-move;
+      animation-duration: 15s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes moon-move {
+      from {
+        transform: translateX(-100vw)
+            translateY(20vh);
+      }
+      50% {
+        transform: translateX(0%)
+            translateY(0%);
+      }
+      to {
+        transform: translateX(100vw)
+            translateY(20vh);
+      }
+    }
+
+
+    .xtree {
+      position: absolute;
+      bottom: 0px;
+      display: inline-block;
+      width: 100%;
+      height: 80%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url(christmas-tree.png);
+    }
+    .xtree-label {
+      position: absolute;
+      top: 30%;
+      display: inline-block;
+      width: 100%;
+      height: 30%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url(new-year-2020-label.png);
+    }
+    .xtree-top-left {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      display: inline-block;
+      width: 50%;
+      height: 50%;
+      background-position: top left;;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url(christmas-tree-top-left.png);
+    }
+    .snow-star {
+      position: absolute;
+      width: 20vh;
+      height: 20vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url(snow-star.png);
+      top:0vh;
+      left: 0vh;
+      animation-name: snow-star-anim;
+      animation-duration: 25s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes snow-star-anim {
+      0% {
+        transform: 
+          translateX(120vw)
+          translateY(-100vh)
+      }
+      40% {
+        transform: 
+          translateX(50vw)
+          translateY(60vh)
+          rotateZ(-360deg)
+          rotateX(360deg);
+      }
+      100% {
+        transform: 
+          translateX(-20vw)
+          translateY(110vh)
+          rotateZ(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="moon"></div>
+  <div class="xtree"></div>
+  <div class="xtree-label"></div>
+
+  <div class="snow-star"></div>
+
+  <div class="xtree-top-left"></div>
+</body>
+</html>
