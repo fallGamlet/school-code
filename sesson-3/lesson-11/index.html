@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array Example</title>
+
+</head>
+
+<body>
+    <script>
+        let arr = [1,2,'a','b', true, false, [], ['ab', 'cd', [1,2,3]]];
+        console.log('arr[0]: '+ arr[0]); // arr[0]: 1
+        console.log('arr[1]: '+ arr[1]); // arr[1]: 2
+        console.log('arr[3]: '+ arr[3]); // arr[3]: a
+        console.log('arr[4]: '+ arr[4]); // arr[4]: b
+        console.log('arr[5]: '+ arr[5]); // arr[5]: true
+
+        console.log(`arr: ${arr}`); // arr: 1,2,a,b,true,false,,ab,cd,1,2,3
+
+        arr[0] = 42;
+        console.log(arr[0]); // 42
+
+        console.log("arr.length: "+ arr.length); // arr.length: 8
+        
+        arr.push("new element");
+        console.log(arr[arr.length-1]); // new element
+        
+        console.log(`arr: ${arr}`); // arr: 1,2,a,b,true,false,,ab,cd,1,2,3
+        const element = arr.pop();
+        console.log('element: '+ element); // new element
+        console.log(`arr: ${arr}`); // arr: 42,2,a,b,true,false,,ab,cd,1,2,3
+
+        const first = arr.shift()
+        console.log('first: '+ first); // 42
+        console.log(`arr: ${arr}`); // arr: 2,a,b,true,false,,ab,cd,1,2,3
+        arr.unshift('head item');
+        console.log(`arr: ${arr}`); // arr: head item, 2,a,b,true,false,,ab,cd,1,2,3
+
+        console.log('------------------');
+        console.log('Print all arr items with FORE loop');
+        for(let i=0; i < arr.length; i++) {
+            console.log(`index = ${i}, value = ${arr[i]}`);
+        }
+        console.log('------------------');
+        console.log('Print all arr items with forEach');
+        const printIndexedValue = function(value, index){
+            console.log(`index = ${index}, value = ${value}`);
+        }
+        arr.forEach(printIndexedValue);
+
+        let numbersArr = [1,2,3,4,5,6,7];
+        let squareNumbersArr = numbersArr.map(function(value) {
+            return value**2;
+        });
+
+        console.log('------------------');
+        console.log(`numbers: ${numbersArr}`);
+        console.log(`sqare numbers: ${squareNumbersArr}`);
+
+        console.log('------------------');
+
+        // function for create array of numbers from start to end
+        function createNumbers(start, end) {
+            let mas = [];
+            for (; start <= end; start++) {
+                mas.push(start);                
+            }
+            return mas;
+        }
+
+        let arr1 = createNumbers(0, 5);
+        let arr2 = createNumbers(5, 10);
+        console.log(`arr1 = ${arr1}`);
+        console.log("arr2 = "+arr2);
+    </script>
+</body>
+
+</html>
