@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array Example</title>
+
+</head>
+
+<body>
+    <script>
+        function concatValues(value1, value2) {
+            return `${value1}${value2}`;
+        }
+
+        let myConcatFunction = concatValues;
+
+        let result1 = concatValues(1, 2);
+        let result2 = myConcatFunction(1, 2);
+
+        console.log(`Result1: ${result1}`);
+        console.log(`Result1: ${result2}`);
+
+        let myFun1 = function() {
+            return "this is my anonimous function";
+        }
+        let result3 = myFun1(1, 2);
+        console.log(`Result1: ${result3}`);
+
+        let makeSum = (num1, num2) => {
+            console.log("called anonim function for sum");
+            return Number(num1) + Number(num2);
+        }
+
+        let makeSub = (num1, num2) => Number(num1) - Number(num2)
+
+        let arr = [1,2,3,6,7,4,6,8,5,7];
+
+        function sumArray(arr) {
+            let sum = 0;
+            for(let i=0; i<arr.length; i++) {
+                sum += arr[i];
+            }
+            return sum;
+        }
+        
+        let sum = sumArray(arr);
+        console.log(`Sum is ${sum}`);
+
+        function revertArray(arr) {
+            let resArr = [];
+            for(let i = arr.length-1; i>=0; i--) {
+                resArr.push(arr[i]);
+            }
+            return resArr;
+        }
+
+        let revertedArr = revertArray([1,'a',3,'b',5,'c']);
+        console.log('Reverted array: '+revertArray);
+
+        arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'z']
+        arr.forEach((value, index) => console.log(`${index}: ${value}`))
+
+        let arr1 = arr.map((value) => `${value}1`);
+        console.log(arr1);
+
+        let arr2 = arr.map((value, index) => `${value}: ${index}`)
+        console.log(arr2);
+        
+        function squareArray(arr) {
+            return arr.map((val) => val*val);
+        }
+        arr = [1,2,3,4,5,55,33,22];
+        let squaredArr = squareArray(arr);
+        console.log('origin '+ arr +' \nsquared array: '+squaredArr);
+    </script>
+</body>
+
+</html>
