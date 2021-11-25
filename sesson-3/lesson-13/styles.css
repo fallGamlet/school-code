@@ -1,0 +1,40 @@
+html {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    background: darkslategrey;
+    position: relative;
+}
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+.counter {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    min-width: 100px;
+    min-height: 100px;
+    margin: 16px;
+    padding: 16px;
+    background: #ffffff;
+    cursor: pointer;
+    color: darkcyan;
+    border: 2px solid #eeeeee;
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px 8px #0000004c;
+    transition: all 0.2s linear;
+}
+.counter:hover {
+    border-color: #09e4e4;
+    box-shadow: 0px 0px 4px 4px #0000003c;
+}
