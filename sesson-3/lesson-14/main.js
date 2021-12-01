@@ -3,20 +3,19 @@ const STATE_DARK = "STATE_DARK"
 const themeLight = { bg: "#fff",txt: "#333" }
 const themeDark = { bg: "#333", txt: "#fff" }
 
-document.addEventListener(
-    'DOMContentLoaded', 
-    main
-);
+// прослушивание события окончания загрузки документа
+document.addEventListener('DOMContentLoaded', main);
 
 function main() {
-    const counterView = 
-        document.querySelector('.counter');
-    activateCounter(counterView);    
+    // получение ссылки на html элемент с классом counter 
+    let counterView = document.querySelector('.counter');
+    activateThemeChanging(counterView);    
 }
 
-function activateCounter(view) {
+function activateThemeChanging(view) {
     view.addEventListener("click", () => {
         let theme;
+        // смена темы, если была светлая, то меняем на темную и наоборот
         if (view.my_state == STATE_LIGHT) {
             view.my_state = STATE_DARK
             theme = themeDark
@@ -24,15 +23,16 @@ function activateCounter(view) {
             view.my_state = STATE_LIGHT
             theme = themeLight
         }
-        view.style.backgroundColor = theme.bg
-        view.style.color = theme.txt
-        
-        const count = 
-            Number(view.textContent);
-        if (isNaN(count)) {
-            view.textContent = "0";
-        } else {
-            view.textContent = count + 1;
-        }
+        view.style.backgroundColor = theme.bg // установить цвет фона элемента
+        view.style.color = theme.txt // установить цвет текста элемента
+        view.style.borderColor = getRandomColor()
     });
+}
+
+// метод для получения случайного цвета
+function getRandomColor() {
+    const red = Math.round(255*Math.random());  // генерация случайного компонента красного цвета
+    const green = Math.round(255*Math.random());  // генерация случайного компонента зеленого цвета
+    const blue = Math.round(255*Math.random());  // генерация случайного компонента синего цвета
+    return `rgb(${red}, ${green}, ${blue})`; // формирование цвета из компонент
 }
