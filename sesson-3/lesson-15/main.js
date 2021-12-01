@@ -2,13 +2,20 @@
 const LIGHT = 'light-style'
 const DARK = 'dark-style'
 
+const borderColors = [
+    'border-orange',
+    'border-blue',
+    'border-purple',
+    'border-green',
+    'border-yellow'
+];
 const shapes = [
     'shape-oval', 
-    'shape-rect', 
     'shape-rect-rounded',
-    'shape-rect-rounded-very'
+    'shape-rect-rounded-very',
+    'shape-rect'
 ];
-let shapeCounter = 0
+let clickCounter = 0
 
 // прослушивание события окончания загрузки документа
 document.addEventListener('DOMContentLoaded', main);
@@ -22,7 +29,9 @@ function main() {
 function activateThemeChanging(view) {
     view.addEventListener("click", () => {
         changeColorTheme(view);
+        changeBorderColor(view);
         changeShape(view);
+        clickCounter++;
     });
 }
 
@@ -36,12 +45,20 @@ function changeColorTheme(view) {
     }
 }
 
+function changeBorderColor(view) {
+    const index = clickCounter % borderColors.length;
+    const currenBorderColor = borderColors[index];
+    borderColors.forEach(item => {
+        view.classList.remove(item);
+    });
+    view.classList.add(currenBorderColor);
+}
+
 function changeShape(view) {
-    const index = shapeCounter % shapes.length;
+    const index = clickCounter % shapes.length;
     const currenShape = shapes[index];
     shapes.forEach(item => {
         view.classList.remove(item);
     });
     view.classList.add(currenShape);
-    shapeCounter++;
 }

@@ -36,20 +36,23 @@ body {
     user-select: none;
 }
 .circle-center:hover {
-    border-color: #09e4e4;
     box-shadow: 0px 0px 4px 4px #0000003c;
 }
 
 .light-style {
     background: #ffffff;
     color: #333333;
-    border-color: #8f0fc2;
 }
 .dark-style {
     background: #333333;
     color: #ffffff;
-    border-color: #4d0a68;
 }
+
+.border-orange { border-color: orange; }
+.border-blue { border-color: blue; }
+.border-purple { border-color: purple; }
+.border-green { border-color: green; }
+.border-yellow { border-color: yellow; }
 
 .shape-oval { border-radius: 50%; }
 .shape-rect { border-radius: 0px; }
