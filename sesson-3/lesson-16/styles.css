@@ -1,0 +1,50 @@
+html {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    background: #1e2e2e;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.symbol {
+    background: #fff;
+    color: #111;
+    padding: 16px;
+    border-radius: 8px;
+    animation: TransitionAround 5s infinite linear;
+}
+
+@keyframes TransitionAround {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    15% {
+        transform: translate(0px, -100px);
+        background: #4d11db;
+    }
+    30% {
+        transform: translate(100px, 0px);
+    }
+    45% {
+        transform: translate(0px, 100px);
+    }
+    60% {
+        transform: translate(-100px, 0px);
+        background: #ffc117;
+    }
+    75% {
+        transform: translate(0px, -100px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+        background: #fff;
+    }
+}
