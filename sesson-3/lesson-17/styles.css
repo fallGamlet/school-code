@@ -1,0 +1,25 @@
+html {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    background: #1e2e2e;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.symbol {
+    background: #fff;
+    color: #111;
+    padding: 16px;
+    border-radius: 8px;
+}
+.symbol:first-child {
+    background: #999;
+}
