@@ -4,7 +4,10 @@ document.addEventListener('DOMContentLoaded', main);
 
 function main() {
     const targetView = document.querySelector('#target');
+    transformWithAnimation(targetView);
+}
 
+function transformWithAnimation(targetView) {
     function createTransformState(animationProgress) {
         let translate = createTranslateState(animationProgress);
         let rotate = createRotateState(animationProgress);
@@ -26,18 +29,17 @@ function main() {
     }
 
     const totalDuration = 1000;
-    const startTime = new Date()
+    const startTime = new Date();
     let animationId = setInterval(() => {
-        let duration = new Date().getTime() - startTime.getTime()
+        let duration = new Date().getTime() - startTime.getTime();
         let progress = duration / totalDuration;
-        let transform = ''
+        let transform = '';
         if (progress >= 1) {
             transform = createTransformState(1);
             clearInterval(animationId);
         } else {
             transform = createTransformState(progress);
         }
-        targetView.style.transform = transform
+        targetView.style.transform = transform;
     }, 20);
-    
 }
