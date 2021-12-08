@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', main);
 
 function main() {
     const targetView = document.querySelector('#target');
-    let animationProgress = 0;
 
     function createTransformState(animationProgress) {
         let translate = createTranslateState(animationProgress);
