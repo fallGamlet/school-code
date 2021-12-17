@@ -7,7 +7,7 @@ function main() {
     transformWithAnimation(targetView);
 }
 
-function transformWithAnimation(targetView) {
+function transformWithAnimation(view) {
     function createTransformState(animationProgress) {
         let translate = createTranslateState(animationProgress);
         let rotate = createRotateState(animationProgress);
@@ -40,6 +40,26 @@ function transformWithAnimation(targetView) {
         } else {
             transform = createTransformState(progress);
         }
-        targetView.style.transform = transform;
+        view.style.transform = transform;
     }, 20);
+}
+
+function moveViewToPoint(view, point) {
+    if (!view || !point) return;
+
+    const totalDuration = 1000;
+    const startTime = new Date();
+
+    let animationId = setInterval(() => {
+        let duration = new Date().getTime() - startTime.getTime();
+        let progress = duration / totalDuration;
+
+        if (progress > 1) {
+            progress = 1
+            clearInterval(animationId);
+        }
+
+
+
+    }, interval);
 }
