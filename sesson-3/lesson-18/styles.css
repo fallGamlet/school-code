@@ -14,38 +14,35 @@ body {
     min-height: 100vh;
 }
 
-.cloud-wrapper {
+.cloud {
     display: block;
     position: relative;
-    width: 300px;
-    height: 200px;
-    animation: 3s linear 0s infinite reverse both running anim-levitation;
-}
-.cloud-item {
-    display: inline-block;
-    background: #fff;
-    color: #111;
-    width: 150px;
-    height: 150px;
-    border-radius: 50000px;
-    border: 4px solid #ccc;
-}
-.num-a {
-    position: absolute;
-    width: 100%;
-    height: 60%;
-    bottom: 0px;
-    left: 0px;
-}
-.num-b {
-    position: absolute;
-    width: 50%;
-    top: 0px;
-    left: 25%;
-    border-bottom-color: transparent;
-    border-left-width: 1px;
-    border-right-width: 1px;
-}
+    width:350px;
+    height:120px;
+    background:#ECEFF1;
+    box-shadow: 10px 10px rgba(0,0,0,0.2);
+    border-radius:100px;
+    animation: 3s ease-in-out 0s infinite alternate-reverse anim-levitation;
+ }
+ .cloud::after, .cloud::before{
+     content:"";
+     position:relative;
+     display:inline-block;
+     background:inherit;
+     border-radius:inherit;
+ }
+ .cloud::after{
+     width:100px;
+     height:100px;
+     top:-220px;
+     left:50px;
+ }
+ .cloud::before{
+     width:180px;
+     height:180px;
+     top: -70px;
+     left:130px;
+ }
 
 @keyframes anim-levitation {
     0% {
@@ -53,19 +50,9 @@ body {
             translate(0px, 0px) 
             scale(1, 1);
     }
-    25% {
-        transform: 
-            translate(0px, -50px)
-            scale(1.1, 1.1);
-    }
-    75% {
-        transform: 
-            translate(0px, -50px)
-            scale(1.1, 1.1);
-    }
     100% {
         transform: 
-            translate(0px, 0px)
-            scale(1, 1);
+            translate(0px, -100px)
+            scale(1.1, 1);
     }
 }
