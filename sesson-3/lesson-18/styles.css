@@ -1,0 +1,71 @@
+html {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    background: #52d7ff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.cloud-wrapper {
+    display: block;
+    position: relative;
+    width: 300px;
+    height: 200px;
+    animation: 3s ease-in-out 0s infinite reverse both running anim-levitation;
+}
+.cloud-item {
+    display: inline-block;
+    background: #fff;
+    color: #111;
+    width: 150px;
+    height: 150px;
+    border-radius: 50000px;
+    border: 4px solid #ccc;
+}
+.num-a {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    bottom: 0px;
+    left: 0px;
+}
+.num-b {
+    position: absolute;
+    width: 50%;
+    top: 0px;
+    left: 25%;
+    border-bottom-color: transparent;
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+
+@keyframes anim-levitation {
+    0% {
+        transform: 
+            translate(0px, 0px) 
+            scale(1, 1);
+    }
+    25% {
+        transform: 
+            translate(0px, -50px)
+            scale(1.1, 1.1);
+    }
+    75% {
+        transform: 
+            translate(0px, -50px)
+            scale(1.1, 1.1);
+    }
+    100% {
+        transform: 
+            translate(0px, 0px)
+            scale(1, 1);
+    }
+}
