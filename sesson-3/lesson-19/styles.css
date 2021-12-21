@@ -1,0 +1,88 @@
+html {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background: linear-gradient(0deg, 
+        #38d42a 0px 20%, 
+        #52d7ff 25% 80%, 
+        #006786 100%
+        );
+}
+
+.stacked-linear {
+    width: 300px;
+    height: 300px;
+    background:
+        linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+        linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+        linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+}  
+
+.parrot {
+    width: 300px;
+    height: 200px;
+    background: url(images/parrot.png) no-repeat center;
+    background-size: contain;
+    background-color: #00000067;
+}
+.wall {
+    width: 300px;
+    height: 200px;
+    background-image: url(https://pluspng.com/img-png/tile-floor-png-tile-floor-texture-png-256.png);
+    background-repeat: repeat;
+    background-size: 64px 64px;
+}
+
+.cloud {
+    display: block;
+    position: relative;
+    width:350px;
+    height:120px;
+    margin: 50px;
+    background:#ECEFF1;
+    box-shadow: 10px 10px rgba(0,0,0,0.2);
+    border-radius:100px;
+    animation: 3s ease-in-out 0s infinite alternate-reverse anim-levitation;
+ }
+ .cloud::after, .cloud::before{
+     content:"";
+     position:relative;
+     display:inline-block;
+     background:inherit;
+     border-radius:inherit;
+ }
+ .cloud::after{
+     width:100px;
+     height:100px;
+     top:-220px;
+     left:50px;
+ }
+ .cloud::before{
+     width:180px;
+     height:180px;
+     top: -70px;
+     left:130px;
+ }
+
+@keyframes anim-levitation {
+    0% {
+        transform: 
+            translate(0px, 0px) 
+            scale(1, 1);
+    }
+    100% {
+        transform: 
+            translate(0px, -100px)
+            scale(1.1, 1);
+    }
+}
