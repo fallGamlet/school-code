@@ -1,0 +1,99 @@
+html {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background: linear-gradient(0deg, 
+        #38d42a 0px 20%, 
+        #52d7ff 25% 80%, 
+        #006786 100%
+        );
+    background-attachment: fixed;
+}
+
+.ny-tree-container {
+    display: block;
+    position: relative;
+}
+.ny-tree {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ny-tree-branch {
+    width: 0px;
+    height: 0px;
+    border: 50px solid transparent;
+    margin-bottom: -50px;
+    border-top-color: #0d7e2f;
+    border-left-color: #0d7e2f;
+    transform: rotateZ(45deg);
+}
+.branch-1 {
+    border-width: 50px;
+    margin-bottom: -50px;
+}
+.branch-2 {
+    border-width: 80px;
+    margin-bottom: -80px;
+}
+.branch-3 {
+    border-width: 120px;
+    margin-bottom: -120px;
+}
+
+
+.toy-level {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: #ffffff27;
+}
+.toy {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: silver;
+    transform: translate(-15px, -15px);
+    animation: alpha-anim ease-in 1s alternate infinite;
+}
+
+.color1 { 
+    background-color: silver; 
+    animation-duration: 1.3s; 
+    animation-delay: 0s;
+}
+.color2 { 
+    background-color: red; 
+    animation-duration: 0.7s; 
+    animation-delay: 0.1s;
+}
+.color3 { 
+    background-color: #0077ff; 
+    animation-duration: 1.7s; 
+    animation-delay: 0.3s;
+}
+
+@keyframes alpha-anim {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
