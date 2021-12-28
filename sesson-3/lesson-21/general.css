@@ -1,0 +1,74 @@
+html {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    min-height: 100vh;
+    position: relative;
+    display: block;
+    background: #000000;
+    overflow: hidden;
+}
+
+.sesson-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background-attachment: fixed;
+}
+
+
+.tree {
+    display: inline-block;
+    position: relative;
+    background-color: brown;
+    width: 20px; 
+    height: 100px;
+    overflow: visible;
+    margin: 0px auto;
+    border-radius: 50px;
+}
+.tree::after {
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: -25%;
+    width: 200%;
+    height: 50%;
+    background-color: #6aff2f;
+    border-radius: 9999px;
+    animation: ease-in-out 3s normal both grow-anim;
+}
+.tree>.tree {
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    width: 50%;
+    height: 70%;
+    border-radius: 50px;
+}
+.tree>.tree:first-child {
+    transform: translate(-100%, -85%) rotateZ(-30deg) translate(-150%, -10%);
+}
+.tree>.tree:last-child {
+    transform: translate(0%, -85%) rotateZ(30deg) translate(150%, -10%);
+}
+
+@keyframes grow-anim {
+    0% {
+        transform: scale(0, 0);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+

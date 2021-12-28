@@ -1,0 +1,95 @@
+.winter {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, 
+        #84ceff 0px 40%, 
+        #52d7ff 45% 80%, 
+        #006786 100%
+        );
+}
+
+.mounts {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    animation: ease-in 4s 3s normal both clip-path-anim;
+}
+.mounts>div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#838ef1, white);
+    clip-path: polygon(0% 90%, 20% 20%, 30% 90%, 50% 60%, 95% 100%, 0 100%);
+}
+.mounts>div:first-child {
+    top: 0;
+    left: 20%;
+    background: linear-gradient(#838ef1, rgb(215, 250, 255));
+    clip-path: polygon(0% 100%, 20% 30%, 30% 90%, 50% 60%, 100% 100%);
+}
+
+
+.snowman {
+    display: block;
+    width: 200px;
+    height: auto;
+    z-index: 2;
+    animation: ease-in 3s normal clip-path-anim;
+}
+@keyframes clip-path-anim {
+    0% {
+        clip-path: (0% 0% 100% 0%);
+    }
+    100% {
+        clip-path: inset(0% 0% 0% 0%);
+    }
+}
+.snowman>div {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: #c9eefd;
+    border: 1px solid #00b5fd;
+    margin: 0px auto -10%;
+    border-radius: 50%;
+}
+.snowman>.snowman-head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+ }
+ .snowman>.snowman-middle {
+    width: 100px;
+    height: 100px;
+ }
+ .snowman>.snowman-bottom {
+    width: 150px;
+    height: 150px;
+ }
+
+ .snowman-head>.carrot {
+    position: relative;
+    display: block;
+    width: 30%;
+    height: 50%;
+    background: orange;
+    clip-path: ellipse(20% 50% at 50% 50%);
+    transform: translate(0px, 30%) rotateZ(45deg);
+    transform-origin: top;
+ }
+ .snowman-head>.eye {
+     display: inline-block;
+     width: 20%;
+     height: 20%;
+     background: black;
+     clip-path: circle(50% at 50% 70%);
+     margin-bottom: 50%;
+ }
+
