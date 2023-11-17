@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 6 - JS</title>
+    <style>
+        body {
+            background: #333333;
+        }
+        .my-block {
+            position: relative;
+            display: inline-flex;
+            background-color: yellowgreen;
+            height: 200px;
+            width: 200px;
+            margin: 16px;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            transition: all 1s;
+        }
+        .my-block-other {
+            height: 100px;
+            width: 100px;
+            background-color: white;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="my-block"></div>
+    <div class="my-block"></div>
+    <div class="my-block"></div>
+    <div class="my-block"></div>
+    <div class="my-block"></div>
+    <div class="my-block"></div>
+    <div class="my-block"></div>
+    <div class="my-block"></div>
+    <script>
+        const blocks = document.querySelectorAll(".my-block");
+        const objects = [
+            {
+                id: 1,
+                textColor: "white",
+                bgColor: "red",
+                name: "Obj RED"
+            },
+            {
+                id: 2,
+                textColor: "black",
+                bgColor: "yellow",
+                name: "Obj Yellow"
+            },
+            {
+                id: 3,
+                textColor: "white",
+                bgColor: "#384ca8",
+                name: "Obj Yet"
+            }
+        ];
+        
+        blocks.forEach((view, viewIndex) => {
+            const objectIndex = viewIndex % objects.length;
+            const obj = objects[objectIndex];
+            view.style.backgroundColor = obj.bgColor;
+            view.style.color = obj.textColor;
+            view.textContent = obj.name ?? "Default";
+        });
+        
+    </script>
+</body>
+</html>
