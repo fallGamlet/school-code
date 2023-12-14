@@ -22,18 +22,20 @@
             justify-content: flex-end;
             align-items: stretch;
         }
+        .chat-container .messages-wraper {
+            position: relative;
+            flex: 1 1 auto;
+            overflow-y: scroll;
+        }
         .chat-container #messages-container {
             position: relative;
-            display: inline-flex;
+            display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            overflow-y: scroll;
             align-items: stretch;
-            border: #0a58c4 solid 2px;
-            background: #fff;
-            color: #333;
             padding: 1em;
             row-gap: 0.3em;
+            min-height: 100%;
         }
         .chat-container #messages-container .message {
             position: relative;
@@ -87,9 +89,8 @@
 </head>
 <body>
     <div class="chat-container">
-        <div id="messages-container">
-            <div class="message user-me">Some message from me</div>
-            <div class="message user-other">Some message from me</div>
+        <div class="messages-wraper">
+            <div id="messages-container"></div>
         </div>
         <div id="input-container">
             <input type="text" name="input">
@@ -111,9 +112,11 @@
             inputField.focus()
             const node = createMessageNode(message, "user-me");
             messagesContainer.appendChild(node);
+            node.scrollIntoView()
 
             const nodeOther = createMessageNode(`Your message is \n>${message}`, "user-other");
             messagesContainer.appendChild(nodeOther);
+            nodeOther.scrollIntoView()
         }
 
         function createMessageNode(text, subclass) {
