@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 10 - JS: Edit html nodes</title>
+    <style>
+        body {
+            font-size: 24px;
+            background: #224;
+            color: white;
+            padding: 0px;
+            margin: 0px;
+        }
+        .chat-container {
+            position: relative;
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            background: #fff;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: stretch;
+        }
+        .chat-container .messages-wraper {
+            position: relative;
+            flex: 1 1 auto;
+            overflow-y: scroll;
+        }
+        .chat-container #messages-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: stretch;
+            padding: 1em;
+            row-gap: 0.3em;
+            min-height: 100%;
+        }
+        .chat-container #messages-container .message {
+            position: relative;
+            display: block;
+            background: #fffc34;
+            color: black;
+            border-radius: 1em;
+            padding: 0.5em 1em;
+        }
+        .chat-container #messages-container .user-me {
+            background: #4e9ffb;
+            color: black;
+            margin-left: 30%;
+        }
+        .chat-container #messages-container .user-other {
+            margin-right: 30%;
+        }
+
+        .chat-container > #input-container {
+            position: relative;
+            display: inline-flex;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        .chat-container > #input-container input {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            padding: 8px 16px;
+            margin: 0px;
+            font-size: 120%;
+        }
+        .chat-container > #input-container #send-button {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            margin: 0px;
+            padding: 16px;
+            background: #0a58c4;
+            cursor: pointer;
+            color: #fff;
+            transition: all 0.5s linear;
+        }
+        .chat-container > #input-container #send-button:hover {
+            background: #4e9ffb;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="messages-wraper">
+            <div id="messages-container"></div>
+        </div>
+        <div id="input-container">
+            <input type="text" name="input">
+            <div id="send-button">Send</div>
+        </div>
+    </div>
+    <script>
+        const inputField = document.querySelector("input[name=input]");
+        const sendButton = document.querySelector("#send-button");
+        const messagesContainer = document.querySelector("#messages-container")
+
+        inputField.addEventListener('keyup', event => {
+            if (event.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+        
+        sendButton.onclick = () => {
+            const message = inputField.value.trim();
+            if (!message) {
+                return;
+            }
+
+            inputField.value = '';
+            inputField.focus()
+            const node = createMessageNode(message, "user-me");
+            messagesContainer.appendChild(node);
+            node.scrollIntoView()
+
+            const nodeOther = createMessageNode(`Your message is \n>${message}`, "user-other");
+            messagesContainer.appendChild(nodeOther);
+            nodeOther.scrollIntoView()
+        };
+
+        function createMessageNode(text, subclass) {
+            const node = document.createElement("div");
+            node.className = "message";
+            node.classList.add(subclass);
+            node.innerText = text;
+            return node;
+        }
+    </script>
+</body>
+</html>
