@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 11 - Chat</title>
+    <title>Lesson 12 - Chat with simple bot</title>
     <style>
         body {
             font-size: 24px;
@@ -120,7 +120,8 @@
             messagesContainer.appendChild(node);
             node.scrollIntoView()
 
-            const nodeOther = createMessageNode(`Your message is \n>${message}`, "user-other");
+            const answeweMessage = getAnswerForMessage(message);
+            const nodeOther = createMessageNode(answeweMessage, "user-other");
             messagesContainer.appendChild(nodeOther);
             nodeOther.scrollIntoView()
         };
@@ -132,6 +133,22 @@
             node.innerText = text;
             return node;
         }
+
+        function getAnswerForMessage(message) {
+            const msg = message.toLowerCase()
+            if (msg.indexOf("hello") != -1) {
+                return "Hi"
+            }
+            if (msg.indexOf("hi") != -1 && msg.indexOf("how are you") != -1) {
+                return "Hello, I'm fine thanks. And are you ?"
+            }
+            if (msg.indexOf("hi") != -1) {
+                return "hello ldhufgiu"
+            }
+
+            return `Your massage is \n${message}`;
+        }
     </script>
+
 </body>
 </html>
