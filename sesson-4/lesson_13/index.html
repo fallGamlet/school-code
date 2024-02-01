@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 13 - Canvas basic</title>
+    <style>
+        body {
+            font-size: 24px;
+            background: white;
+            color: black;
+            padding: 0px;
+            margin: 0px;
+        }
+        #my-canvas {
+            display: block;
+            margin: 50px auto;
+            padding: 0px;
+            border: #444444 solid 2px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="my-canvas" width="200px" height="200px"></canvas>
+    <script>
+        const canvas = document.querySelector("#my-canvas");
+        const ctx = canvas.getContext("2d");
+        if (!ctx) {
+            console.log("!!! Alert - canvas context not supported !!!");
+        }
+
+        const w = canvas.clientWidth;
+        const h = canvas.clientHeight;
+
+        ctx.fillStyle = "#ff0000";
+        ctx.fillRect(0, 0, w / 2, h / 2);
+
+        ctx.fillStyle = "#5555ff";
+        ctx.fillRect(w / 2, 0, w / 2, h / 2);
+
+        ctx.fillStyle = "#ff55ff";
+        ctx.fillRect(0, h / 2, w / 2, h / 2);
+
+        ctx.fillStyle = "#55ffff";
+        ctx.fillRect(w / 2, h / 2, w / 2, h / 2);
+
+        ctx.fillStyle = "#ffff00"
+        ctx.beginPath();
+        ctx.ellipse(w/2, h/2, w/4, h/4, 0, 0, 2*Math.PI);
+        ctx.fill();
+
+    </script>
+</body>
+</html>
