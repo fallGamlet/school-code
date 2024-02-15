@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 15 - Canvas: Animations</title>
+    <style>
+        body {
+            background: white;
+            color: black;
+            padding: 0px;
+            margin: 0px;
+        }
+        #my-canvas {
+            display: block;
+            margin: 50px auto;
+            padding: 0px;
+            border: #444 solid 2px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="my-canvas" width="400px" height="400px"></canvas>
+    <script>
+        const canvas = document.querySelector("#my-canvas");
+        const ctx = canvas.getContext("2d");
+        if (!ctx) {
+            console.log("!!! Alert - canvas context not supported !!!");
+        }
+        const size = {
+            w: canvas.clientWidth,
+            h: canvas.clientHeight
+        };
+        const center = {
+            x: 0.5 * size.w,
+            y: 0.5 * size.h
+        };
+        
+        class Scene {
+            constructor(width, height) {
+                this._size = {width: width, height: height};
+                this._balloons = [];
+            }
+
+            get size() { return this._size; }
+
+            get balloons() { return this._balloons; }
+
+            set balloons(items) { this._balloons = items; }
+        }
+
+        class MoveVector {
+            constructor(x, y) {
+                this._x = x ?? 0;
+                this._y = y ?? 0;
+            }
+
+            get x() { return this._x; }
+            get y() { return this._y; }
+        }
+
+        class Balloon {
+            constructor(x, y, size, color) {
+                this._x = x ?? 0;
+                this._y = y ?? 0;
+                this._size = size ?? 0;
+                this._color = color ?? "#000000";
+                this._moveVector = new MoveVector()
+            }
+
+            get x() { return this._x; }
+            set x(x) { this._x = x; }
+
+            get y() { return this._y; }
+            set y(y) { this._y = y; }
+
+            get moveVector() { return this._moveVector; }
+            set moveVector(vector) { this._moveVector = vector; }
+
+            get size() { return this._size; }
+
+            get color() { return this._color; }
+
+        }
+
+        const scene = new Scene();
+        scene.balloons = [
+            new Balloon(50, 50, 40, "#ff8800"),
+            new Balloon(250, 80, 30, "#8800ff"),
+            new Balloon(80, 234, 50, "#ff0000"),
+            new Balloon(212, 186, 60, "#88aa00")
+        ];
+
+        // set move vector for balloons
+        scene.balloons.forEach((item) => {
+            const angle = 2 * Math.PI * Math.random();
+            const speed = 10 * Math.random();
+            item.moveVector = new MoveVector(
+                Math.floor(speed * Math.cos(angle)),
+                Math.floor(speed * Math.sin(angle))
+            );
+        });
+
+        setInterval(() => {
+            scene.balloons.forEach((item) => {
+                const vector = item.moveVector;
+                const x = (size.w + item.x + vector.x) % size.w;
+                const y = (size.h + item.y + vector.y) % size.h;
+                
+                item.x = x;
+                item.y = y;
+            });
+        }, 1000 / 24);
+
+        window.requestAnimationFrame(draw);
+        function draw() {
+            drawScene(ctx, scene);
+            window.requestAnimationFrame(draw);
+        }
+
+        function drawScene(ctx, scene) {
+            ctx.clearRect(0, 0, size.w, size.h);
+            scene.balloons.forEach((balloon) => {
+                drawBallon(ctx, balloon);
+            });
+        }
+
+        function drawBallon(ctx, balloon) {
+            ctx.fillStyle = balloon.color;
+            ctx.beginPath();
+            ctx.ellipse(balloon.x, balloon.y, balloon.size, balloon.size, 0, 0, 2*Math.PI);
+            ctx.fill();
+        }
+
+    </script>
+</body>
+</html>
