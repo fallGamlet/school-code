@@ -28,6 +28,14 @@
     <div id="map-area"></div>
 
     <script>
+        const mapWidth = 20;
+        const mapHeight = 20;
+
+        const mapArea = createArray2D(mapWidth, mapHeight);
+        const mapAreaView = document.querySelector("#map-area");
+        mapAreaView.style.width = `${mapWidth}em`;
+        mapAreaView.style.height = `${mapHeight}em`;
+
         const directionsMoveSet = {
             right: {dx: 1, dy: 0},
             left: {dx: -1, dy: 0},
@@ -37,17 +45,17 @@
         const snake = {
             direction: directionsMoveSet.right,
             body: [
+                {x: 4, y: 0},
+                {x: 3, y: 0},
+                {x: 2, y: 0},
                 {x: 1, y: 0},
                 {x: 0, y: 0}
             ]
         };
-
-        const mapWidth = 20;
-        const mapHeight = 20;
-        const mapArea = createArray2D(mapWidth, mapHeight);
-        const mapAreaView = document.querySelector("#map-area");
-        mapAreaView.style.width = `${mapWidth}em`;
-        mapAreaView.style.height = `${mapHeight}em`;
+        const apple = {
+            x: Math.round(mapWidth / 2),
+            y: Math.round(mapHeight / 2)
+        };
         
         document.onkeydown = (event) => {
             if (event.key == 'ArrowLeft') {
@@ -63,9 +71,11 @@
 
         let timer = setInterval(() => {
             moveSnake(snake);
+            checkAppleConsumed();
 
             fillArray2D(mapArea, "☐");
             putElemens(mapArea, snake.body, "☉");
+            putElemens(mapArea, [apple], "♥");
 
             const text = array2dToText(mapArea);
             mapAreaView.textContent = text;
@@ -76,7 +86,30 @@
             }
         }, 250);
 
+        function checkAppleConsumed() {
+            isConsumed = snake.body[0].x == apple.x && 
+                snake.body[0].y == apple.y
+            
+            if (isConsumed) {
+                const tail = snake.body[snake.body.length-1];
+                const newTail = {
+                    x: tail.x, 
+                    y: tail.y
+                };
+                snake.body.push(newTail)
+                generateApplePosition()
+            }
+        }
         
+        function generateApplePosition() {
+            apple.x = -1;
+            apple.y = -1;
+            // let x = 0, y = 0;
+            // x = parseInt(mapWidth * Math.random());
+            // y = parseInt(mapHeight * Math.random());
+        }
+
+
         function isCorrectSnake(snake) {
             const head = snake.body[0];
             return head.x >= 0 && head.x < mapWidth &&
@@ -84,12 +117,12 @@
         }
 
         function moveSnake(snake) {
-            const body = snake.body
-            for (let i = body.length-1; i > 0; i--) {
+            const body = snake.body;
+            for (let i = body.length -1; i > 0; i--) {
                 body[i].x = body[i-1].x;
                 body[i].y = body[i-1].y;
             }
-            
+
             body[0].x += snake.direction.dx;
             body[0].y += snake.direction.dy;
         }
@@ -104,7 +137,13 @@
 
         function putElemens(array2d, elements, value) {
             elements.forEach(element => {
-                array2d[element.y][element.x] = value;
+                const isValid = element.y >=0 && 
+                    element.y < array2d.length &&
+                    element.x >= 0 && 
+                    element.x < array2d[element.y].length;
+                if (isValid) {
+                    array2d[element.y][element.x] = value;
+                }
             });
         }
 
