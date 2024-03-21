@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 17 - Snake Game</title>
+    <style>
+        body {
+            background: white;
+            color: black;
+            padding: 0px;
+            margin: 0px;
+        }
+        #map-area {
+            font-family: monospace;
+            font-size: 32px;
+            line-height: 0.7em;
+            width: 10em;
+            height: 10em;
+            margin: 0 auto;
+            border: 2px solid #555;
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="map-area"></div>
+
+    <script>
+        const directionsMoveSet = {
+            right: {dx: 1, dy: 0},
+            left: {dx: -1, dy: 0},
+            down: {dx: 0, dy: 1},
+            up: {dx: 0, dy: -1}
+        };
+        const snake = {
+            direction: directionsMoveSet.right,
+            body: [
+                {x: 1, y: 0},
+                {x: 0, y: 0}
+            ]
+        };
+
+        const mapWidth = 20;
+        const mapHeight = 20;
+        const mapArea = createArray2D(mapWidth, mapHeight);
+        const mapAreaView = document.querySelector("#map-area");
+        mapAreaView.style.width = `${mapWidth}em`;
+        mapAreaView.style.height = `${mapHeight}em`;
+        
+        document.onkeydown = (event) => {
+            if (event.key == 'ArrowLeft') {
+                snake.direction = directionsMoveSet.left;
+            } else if (event.key == 'ArrowRight') {
+                snake.direction = directionsMoveSet.right;
+            } else if (event.key == 'ArrowDown') {
+                snake.direction = directionsMoveSet.down;
+            } else if (event.key == 'ArrowUp') {
+                snake.direction = directionsMoveSet.up;
+            }
+        }; 
+
+        let timer = setInterval(() => {
+            moveSnake(snake);
+
+            fillArray2D(mapArea, "☐");
+            putElemens(mapArea, snake.body, "☉");
+
+            const text = array2dToText(mapArea);
+            mapAreaView.textContent = text;
+            
+            if (!isCorrectSnake(snake)) {
+                clearInterval(timer);
+                alert("GAVE OVER");
+            }
+        }, 250);
+
+        
+        function isCorrectSnake(snake) {
+            const head = snake.body[0];
+            return head.x >= 0 && head.x < mapWidth &&
+                head.y >= 0 && head.y < mapHeight;
+        }
+
+        function moveSnake(snake) {
+            const body = snake.body
+            for (let i = body.length-1; i > 0; i--) {
+                body[i].x = body[i-1].x;
+                body[i].y = body[i-1].y;
+            }
+            
+            body[0].x += snake.direction.dx;
+            body[0].y += snake.direction.dy;
+        }
+
+        function array2dToText(array2d) {
+            const textArr = new Array(array2d.length);
+            array2d.forEach((arr, i) => {
+                textArr[i] = arr.join("");
+            });
+            return textArr.join("\n");
+        }
+
+        function putElemens(array2d, elements, value) {
+            elements.forEach(element => {
+                array2d[element.y][element.x] = value;
+            });
+        }
+
+        function fillArray2D(array2d, value) {
+            array2d.forEach(arr => {
+                arr.fill(value);
+            });
+        }
+
+        function createArray2D(width, height) {
+            const array = new Array(height);
+            for (let i = 0; i < array.length; i++) {
+                array[i] = new Array(width);
+            }
+            return array;
+        }
+    </script>
+</body>
+</html>
