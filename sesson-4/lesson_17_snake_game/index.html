@@ -80,11 +80,22 @@
             const text = array2dToText(mapArea);
             mapAreaView.textContent = text;
             
-            if (!isCorrectSnake(snake)) {
+            if (isGameBadEnd(snake)) {
                 clearInterval(timer);
                 alert("GAVE OVER");
+            } else if (isGameGoodEnd()) {
+                clearInterval(timer);
+                alert("CONGRATULATIONS !");
             }
         }, 250);
+
+        function isGameGoodEnd() {
+            const isAppleInMapArea = 
+                apple.x >= 0 && apple.x < mapWidth &&
+                apple.y >= 0 && apple.y < mapHeight;
+            console.log(`==> isGameGoodEnd apple[X:${apple.x},Y:${apple.y}] result ${!isAppleInMapArea}`)
+            return !isAppleInMapArea;
+        }
 
         function checkAppleConsumed() {
             isConsumed = snake.body[0].x == apple.x && 
@@ -104,16 +115,69 @@
         function generateApplePosition() {
             apple.x = -1;
             apple.y = -1;
-            // let x = 0, y = 0;
-            // x = parseInt(mapWidth * Math.random());
-            // y = parseInt(mapHeight * Math.random());
+
+            const emptyPositions = getMapAreaEmptyPositions();
+            if (emptyPositions.length == 0) {
+                console.log(`==> generateApplePosition() return with apple[X:${apple.x},Y:${apple.y}]`);
+                return;
+            }
+
+            const index = Math.floor(Math.random() * (emptyPositions.length -1));
+            const newApplePosition = emptyPositions[index];
+
+            apple.x = newApplePosition.x;
+            apple.y = newApplePosition.y;
+            console.log(`==> generateApplePosition() return with apple[X:${apple.x},Y:${apple.y}]`);
+        }
+
+        function getMapAreaEmptyPositions() {
+            const size = mapWidth*mapHeight;
+            if (snake.body.length == size) {
+                console.log(`==> getMapAreaEmptyPositions() return with [ ] - empty array`)
+                return [];
+            }
+
+            // create array of all positions on the map area
+            const positions = new Array(size);
+            for (let index = 0; index < size; index++) {
+                var y = Math.floor(index / mapWidth);
+                var x = index % mapWidth;
+                positions[index] = {
+                    x: x,
+                    y: y,
+                    isFree: true
+                }
+            }
+
+            // fill positions when snake body exists
+            snake.body.forEach(item => {
+                const index = item.y * mapWidth + item.x
+                if (index >= 0 && index < positions.length) {
+                    positions[index].isFree = false
+                }
+            });
+
+            // fill position of apple
+            const appleIndex = apple.y * mapWidth + apple.x;
+            if (appleIndex >= 0 && appleIndex < positions.length) {
+                positions[appleIndex].isFree = false
+            }
+
+            const result = positions.filter(pos => pos.isFree);
+
+            console.log(`All positions ${JSON.stringify(positions)}`);
+            console.log(`Free positions ${JSON.stringify(result)}`);
+
+            console.log(`==> getMapAreaEmptyPositions() return size ${result.length}`)
+            return result
         }
 
 
-        function isCorrectSnake(snake) {
+        function isGameBadEnd(snake) {
             const head = snake.body[0];
-            return head.x >= 0 && head.x < mapWidth &&
+            const isHeadInMapArea = head.x >= 0 && head.x < mapWidth &&
                 head.y >= 0 && head.y < mapHeight;
+            return !isHeadInMapArea;
         }
 
         function moveSnake(snake) {
