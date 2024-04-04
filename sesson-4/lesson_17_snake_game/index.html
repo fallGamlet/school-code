@@ -11,10 +11,21 @@
             padding: 0px;
             margin: 0px;
         }
+        #scores-view {
+            background: #036fb7;
+            color: white;
+            font-size: 2em;
+            padding: 0.5em 1em;
+            border-radius: 16px;
+            margin: 1em auto;
+            width: 10em;
+            text-align: center;
+        }
         #map-area {
             font-family: monospace;
-            font-size: 32px;
-            line-height: 0.7em;
+            font-size: 20px;
+            line-height: 1.2em;
+            letter-spacing: 0em;
             width: 10em;
             height: 10em;
             margin: 0 auto;
@@ -25,16 +36,18 @@
     </style>
 </head>
 <body>
+    <div id="scores-view">Scores: ___</div>
     <div id="map-area"></div>
 
     <script>
+        let scores = 0;
         const mapWidth = 20;
         const mapHeight = 20;
-
         const mapArea = createArray2D(mapWidth, mapHeight);
+        const scoresView = document.querySelector("#scores-view");
         const mapAreaView = document.querySelector("#map-area");
-        mapAreaView.style.width = `${mapWidth}em`;
-        mapAreaView.style.height = `${mapHeight}em`;
+        mapAreaView.style.width = `${Math.floor(1.25*mapWidth)}em`;
+        mapAreaView.style.height = `${Math.floor(1.2*mapHeight)}em`;
 
         const directionsMoveSet = {
             right: {dx: 1, dy: 0},
@@ -73,9 +86,11 @@
             moveSnake(snake);
             checkAppleConsumed();
 
-            fillArray2D(mapArea, "☐");
-            putElemens(mapArea, snake.body, "☉");
-            putElemens(mapArea, [apple], "♥");
+            fillArray2D(mapArea, "⬜"); // ☐
+            putElemens(mapArea, snake.body, "⚫"); // ⚉
+            putElemens(mapArea, [apple], "⭐"); // ♥
+
+            scoresView.textContent = `Scores: ${scores}`;
 
             const text = array2dToText(mapArea);
             mapAreaView.textContent = text;
@@ -93,7 +108,6 @@
             const isAppleInMapArea = 
                 apple.x >= 0 && apple.x < mapWidth &&
                 apple.y >= 0 && apple.y < mapHeight;
-            console.log(`==> isGameGoodEnd apple[X:${apple.x},Y:${apple.y}] result ${!isAppleInMapArea}`)
             return !isAppleInMapArea;
         }
 
@@ -107,8 +121,9 @@
                     x: tail.x, 
                     y: tail.y
                 };
-                snake.body.push(newTail)
-                generateApplePosition()
+                snake.body.push(newTail);
+                generateApplePosition();
+                scores += 10;
             }
         }
         
@@ -118,7 +133,6 @@
 
             const emptyPositions = getMapAreaEmptyPositions();
             if (emptyPositions.length == 0) {
-                console.log(`==> generateApplePosition() return with apple[X:${apple.x},Y:${apple.y}]`);
                 return;
             }
 
@@ -127,13 +141,11 @@
 
             apple.x = newApplePosition.x;
             apple.y = newApplePosition.y;
-            console.log(`==> generateApplePosition() return with apple[X:${apple.x},Y:${apple.y}]`);
         }
 
         function getMapAreaEmptyPositions() {
             const size = mapWidth*mapHeight;
             if (snake.body.length == size) {
-                console.log(`==> getMapAreaEmptyPositions() return with [ ] - empty array`)
                 return [];
             }
 
@@ -163,13 +175,7 @@
                 positions[appleIndex].isFree = false
             }
 
-            const result = positions.filter(pos => pos.isFree);
-
-            console.log(`All positions ${JSON.stringify(positions)}`);
-            console.log(`Free positions ${JSON.stringify(result)}`);
-
-            console.log(`==> getMapAreaEmptyPositions() return size ${result.length}`)
-            return result
+            return positions.filter(pos => pos.isFree);
         }
 
 
