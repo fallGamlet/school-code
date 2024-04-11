@@ -6,13 +6,13 @@
     <title>Lesson 17 - Snake Game</title>
     <style>
         body {
-            background: white;
+            background: #c3c34d;
             color: black;
             padding: 0px;
             margin: 0px;
         }
         #scores-view {
-            background: #036fb7;
+            background: #6f3d24;
             color: white;
             font-size: 2em;
             padding: 0.5em 1em;
@@ -29,7 +29,7 @@
             width: 10em;
             height: 10em;
             margin: 0 auto;
-            border: 2px solid #555;
+            border: 2px solid #6f3d24;
             background: white;
             color: black;
         }
@@ -97,10 +97,10 @@
             
             if (isGameBadEnd(snake)) {
                 clearInterval(timer);
-                alert("GAVE OVER");
+                goToEnd(false);
             } else if (isGameGoodEnd()) {
                 clearInterval(timer);
-                alert("CONGRATULATIONS !");
+                goToEnd(true);
             }
         }, 250);
 
@@ -229,6 +229,10 @@
                 array[i] = new Array(width);
             }
             return array;
+        }
+
+        function goToEnd(isWinning) {
+            window.location.href = "./result.html";
         }
     </script>
 </body>
