@@ -19,6 +19,7 @@
         .page-title {
             font-size: 250%;
             color: #6f3d24;
+            margin: 8px;
         }
         #game-menu {
             display: inline-flex;
@@ -49,8 +50,27 @@
 <body>
     <div class="page-title" id="good-end">Gongratulations !!</div>
     <div class="page-title" id="bad-end">You are lose</div>
+
+    <div class="page-title" id="scores"></div>
+
     <div id="game-menu">
         <a class="game-menu_item" id="new-game" href="./index.html">To main menu</a>
     </div>
+    <script>
+        const goodEndView = document.querySelector("#good-end");
+        const badEndView = document.querySelector("#bad-end");
+        const scoresView = document.querySelector("#scores");
+        
+        let params = new URLSearchParams(document.location.search);
+        const isWinning = params.get("isWinning") == "1";
+        
+        goodEndView.hidden = !isWinning
+        badEndView.hidden = isWinning
+
+        const scores = parseFloat(params.get("scores")); // NaN if not valid float
+        scoresView.textContent = `Scores: ${scores}`;
+        scoresView.hidden = isNaN(scores) || scores < 0;
+
+    </script>
 </body>
 </html>
