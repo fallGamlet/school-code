@@ -203,6 +203,6 @@ function startGame(
     }
 
     function goToEnd(isWinning) {
-        // window.location.href = `./result.html?isWinning=${isWinning ? 1 : 0}&scores=${scores}`;
+        window.location.href = `./result.html?isWinning=${isWinning ? 1 : 0}&scores=${scores}`;
     }
 }
