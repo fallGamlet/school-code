@@ -1,5 +1,12 @@
 
-function startGame(scoresView, mapAreaView) {
+function startGame(
+    scoresView, 
+    mapAreaView,
+    buttonLeft,
+    buttonRight,
+    buttonTop,
+    buttonBottom
+) {
     let scores = 0;
     const mapWidth = 20;
     const mapHeight = 20;
@@ -40,6 +47,11 @@ function startGame(scoresView, mapAreaView) {
             snake.direction = directionsMoveSet.up;
         }
     }; 
+
+    buttonLeft.onclick = () => { snake.direction = directionsMoveSet.left;};
+    buttonRight.onclick = () => { snake.direction = directionsMoveSet.right; };
+    buttonTop.onclick = () => { snake.direction = directionsMoveSet.up; };
+    buttonBottom.onclick = () => { snake.direction = directionsMoveSet.down; };
 
     let timer = setInterval(() => {
         moveSnake(snake);
@@ -191,6 +203,6 @@ function startGame(scoresView, mapAreaView) {
     }
 
     function goToEnd(isWinning) {
-        window.location.href = `./result.html?isWinning=${isWinning ? 1 : 0}&scores=${scores}`;
+        // window.location.href = `./result.html?isWinning=${isWinning ? 1 : 0}&scores=${scores}`;
     }
 }

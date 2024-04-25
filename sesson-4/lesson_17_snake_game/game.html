@@ -12,11 +12,29 @@
     <div id="scores-view" class="scores-view">Scores: ___</div>
     <div id="map-area" class="map-area"></div>
 
+    <div class="arrow-button-container">
+        <div id="button-left" class="arrow-button left">←</div>
+        <div id="button-right"class="arrow-button right">→</div>
+        <div id="button-top" class="arrow-button top">↑</div>
+        <div id="button-bottom" class="arrow-button bottom">↓</div>
+    </div>
+
     <script src="game.js"></script>
     <script>
         const scoresView = document.querySelector("#scores-view");
         const mapAreaView = document.querySelector("#map-area");
-        startGame(scoresView, mapAreaView);
+        const buttonLeft = document.querySelector("#button-left");
+        const buttonRight = document.querySelector("#button-right");
+        const buttonTop = document.querySelector("#button-top");
+        const buttonBottom = document.querySelector("#button-bottom");
+        startGame(
+            scoresView, 
+            mapAreaView, 
+            buttonLeft,
+            buttonRight,
+            buttonTop,
+            buttonBottom
+        );
     </script>
 </body>
 </html>
